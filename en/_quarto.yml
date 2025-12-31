@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: ../_site/en
+
+website:
+  title: "Serge Goussev"
+  repo-url: https://github.com/sergegoussev/sergegoussev.github.io
+  repo-actions: [source]
+  bread-crumbs: true
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  draft-mode: visible
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+      - href: cv.qmd
+
+    right:
+      - text: language
+        menu:
+          - text: English
+            href: "{{< meta filename >}}.html"
+          - text: Francais
+            href: "../fr/{{< meta filename >}}.html"
+          - text: Русский
+            href: "../ru/{{< meta filename >}}.html"
+
+format:
+  html:
+    toc: true
+    theme: 
+      light: flatly
+      dark: cyborg
