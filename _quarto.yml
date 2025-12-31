@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Serge Goussev"
+  repo-url: https://github.com/sergegoussev/sergegoussev.github.io
+  repo-actions: [source]
+  bread-crumbs: true
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  draft-mode: visible
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+
+format:
+  html:
+    toc: true
+    theme: 
+      light: flatly
+      dark: cyborg
