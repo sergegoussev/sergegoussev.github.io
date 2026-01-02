@@ -25,7 +25,7 @@ jobs:
       - name: Add .nojekyll
         run: touch _site/.nojekyll
 
-      - run: echo '<meta http-equiv="refresh" content="0; url=en/">' > index.html
+      - run: echo '<meta http-equiv="refresh" content="0; url=en/">' > _site/index.html
 
       # ----------------------------------------------------------------
       # 3. DEPLOY
