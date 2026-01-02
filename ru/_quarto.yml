@@ -17,13 +17,17 @@ website:
     left:
       - href: index.qmd
       - href: cv.qmd
+
     right:
-      - text: Язык
+      - text: language
         menu:
           - text: English
             href: "../en/{{< meta filename >}}.html"
           - text: Francais
             href: "../fr/{{< meta filename >}}.html"
+          - text: Русский
+            href: "{{< meta filename >}}.html"
+
 format:
   html:
     toc: true
