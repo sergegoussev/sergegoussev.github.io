@@ -30,18 +30,11 @@ jobs:
       # ----------------------------------------------------------------
       - name: Organize Output Folders
         run: |
-          # Create a final directory
-          mkdir _site
-          
-          # Move the profile-specific builds into subdirectories
-          mv _site-en _site/en
-          mv _site-fr _site/fr
-          
           # Create a root redirect (sends users from / to /en/)
           echo '<meta http-equiv="refresh" content="0; url=en/">' > _site/index.html
           
           # (Optional) Add a .nojekyll file to prevent GH Pages from ignoring underscore folders
-          # touch _site/.nojekyll
+          touch _site/.nojekyll
 
       # ----------------------------------------------------------------
       # 3. DEPLOY
