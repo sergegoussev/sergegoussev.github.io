@@ -1,7 +1,0 @@
----
-title: "Bonjour!"
-filename: index
-output: html
----
-
-Site français

@@ -1,3 +1,13 @@
 project:
   type: website
-  output-dir: _site
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+# Shared footer
+website:
+  page-footer: 
+    center: "Copyright 2026"

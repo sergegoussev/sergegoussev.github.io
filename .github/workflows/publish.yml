@@ -1,9 +1,8 @@
+name: Quarto Publish
+
 on:
-  workflow_dispatch:
   push:
     branches: main
-
-name: Quarto Publish
 
 jobs:
   build-deploy:
@@ -17,24 +16,38 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render Root
-        run: quarto render .
-
+      # ----------------------------------------------------------------
+      # 1. RENDER BOTH PROFILES
+      # ----------------------------------------------------------------
       - name: Render English
-        run: quarto render en
+        run: quarto render --profile en
 
-      - name: Render Russian
-        run: quarto render ru
-
-      - name: Render Root
-        run: quarto render .
       - name: Render French
-        run: quarto render fr
+        run: quarto render --profile fr
 
-      - name: Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      # ----------------------------------------------------------------
+      # 2. COMBINE OUTPUTS
+      # ----------------------------------------------------------------
+      - name: Organize Output Folders
+        run: |
+          # Create a final directory
+          mkdir _site
+          
+          # Move the profile-specific builds into subdirectories
+          mv _site-en _site/en
+          mv _site-fr _site/fr
+          
+          # Create a root redirect (sends users from / to /en/)
+          echo '<meta http-equiv="refresh" content="0; url=en/">' > _site/index.html
+          
+          # (Optional) Add a .nojekyll file to prevent GH Pages from ignoring underscore folders
+          # touch _site/.nojekyll
+
+      # ----------------------------------------------------------------
+      # 3. DEPLOY
+      # ----------------------------------------------------------------
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          target: gh-pages
-          render: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site

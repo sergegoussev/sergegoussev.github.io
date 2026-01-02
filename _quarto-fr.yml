@@ -1,0 +1,17 @@
+project:
+  output-dir: _site/fr
+
+lang: fr
+
+website:
+  title: "Mon Site Web"
+  navbar:
+    left:
+      - href: docs/index.qmd
+        text: Accueil
+      - href: docs/about.qmd
+        text: À Propos
+    right:
+      # Link back to the English version
+      - href: ../en/index.html 
+        text: English

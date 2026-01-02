@@ -1,0 +1,17 @@
+project:
+  output-dir: _site/en  # Renders to a specific folder
+
+lang: en
+
+website:
+  title: "My Website"
+  navbar:
+    left:
+      - href: docs/index.qmd
+        text: Home
+      - href: docs/about.qmd
+        text: About
+    right:
+      # Link to the French version
+      - href: ../fr/index.html 
+        text: Français
