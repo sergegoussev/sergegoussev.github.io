@@ -1,5 +1,5 @@
 project:
-  output-dir: _site/en  # Renders to a specific folder
+  output-dir: _site/en 
 
 lang: en
 
@@ -7,9 +7,9 @@ website:
   title: "My Website"
   navbar:
     left:
-      - href: docs/index.qmd
+      - href: index.qmd
         text: Home
-      - href: docs/about.qmd
+      - href: about.qmd
         text: About
     right:
       # Link to the French version

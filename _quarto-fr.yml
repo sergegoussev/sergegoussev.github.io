@@ -7,9 +7,9 @@ website:
   title: "Mon Site Web"
   navbar:
     left:
-      - href: docs/index.qmd
+      - href: index.qmd
         text: Accueil
-      - href: docs/about.qmd
+      - href: about.qmd
         text: À Propos
     right:
       # Link back to the English version

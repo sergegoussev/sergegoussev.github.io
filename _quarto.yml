@@ -1,13 +1,21 @@
 project:
   type: website
+  output-dir: _site/
+
+
+website:
+  title: "Serge Goussev"
+  repo-url: https://github.com/sergegoussev/sergegoussev.github.io
+  repo-actions: [source]
+  bread-crumbs: true
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  draft-mode: visible
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
     toc: true
-
-# Shared footer
-website:
-  page-footer: 
-    center: "Copyright 2026"
+    theme: 
+      light: flatly
+      dark: cyborg
