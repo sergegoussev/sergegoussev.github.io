@@ -1,25 +1,37 @@
 #!/bin/bash
 
-# As the multilingual site is composed of multiple Quarto projects, 
-# we need to render each project individually before serving the site. 
-# This script automates that process.
+# 1. Define your repository name (CRITICAL for mimicking GitHub Pages)
+#    If your site is at sergegoussev.github.io/my-project/, set this to "my-project"
+REPO_NAME="personal-site"
 
-# 1. Render Root first. 
-# This ensures _site is created (and cleaned) before we add sub-projects.
-echo "Rendering Root..."
-quarto render .
+echo "🧹 Cleaning up old builds..."
+rm -rf _site/en _site/fr
 
-# 2. Render Language Projects
-echo "Rendering English..."
-quarto render en
+echo "Rendering English Profile..."
+quarto render --profile en
 
-echo "Rendering Russian..."
-quarto render ru
+echo "Rendering French Profile..."
+quarto render --profile fr
 
-echo "Rendering French..."
-quarto render fr
+# echo "📂 Organizing folders..."
+# # We create a folder structure that mimics the real GitHub Pages URL path
+# # localhost:8000/my-project/en/ instead of just localhost:8000/en/
+# mkdir -p _gh_preview/$REPO_NAME/en
+# mkdir -p _gh_preview/$REPO_NAME/fr
 
-# 3. Serve the site
+# # Move the rendered sites into the repo-named subfolder
+# cp -r _site-en/* _gh_preview/$REPO_NAME/en/
+# cp -r _site-fr/* _gh_preview/$REPO_NAME/fr/
+
+# Create the redirect at the repo root
+# echo "<meta http-equiv=\"refresh\" content=\"0; url=/$REPO_NAME/en/\">" > _gh_preview/$REPO_NAME/index.html
+
+# Create a root redirect (in case you hit localhost:8000 directly)
+# echo "<meta http-equiv=\"refresh\" content=\"0; url=/$REPO_NAME/en/\">" > _gh_preview/index.html
+
+echo "✅ Build Complete!"
 echo "🚀 Serving site at http://localhost:8000/"
-echo "Note - you must go to a browser, paste the URL to view the site."
+echo "   (Press Ctrl+C to stop)"
+
+# Serve from the PARENT of the repo folder to simulate the path
 python -m http.server 8000 --directory _site

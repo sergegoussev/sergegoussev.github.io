@@ -1,7 +1,0 @@
----
-title: CV
-filename: "cv"
-output: html
----
-
-Опыт

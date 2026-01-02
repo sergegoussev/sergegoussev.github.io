@@ -1,0 +1,14 @@
+---
+title: "Home"
+filename: index
+output: html
+---
+
+
+::: {.content-visible when-profile="en"}
+Hello!
+:::
+
+::: {.content-visible when-profile="fr"}
+Bonjour!
+:::

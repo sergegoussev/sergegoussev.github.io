@@ -1,7 +1,0 @@
----
-title: "Home"
-filename: index
-output: html
----
-
-THis is the english site
