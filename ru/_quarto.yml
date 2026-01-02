@@ -1,14 +1,9 @@
 project:
   type: website
-  output-dir: _site
-
-projects:
-  - en
-  - fr
-  - ru
+  output-dir: ../_site/ru
 
 website:
-  title: "Serge Goussev"
+  title: "Сергей Гусев"
   repo-url: https://github.com/sergegoussev/sergegoussev.github.io
   repo-actions: [source]
   bread-crumbs: true
@@ -21,19 +16,14 @@ website:
     search: true
     left:
       - href: index.qmd
+      - href: cv.qmd
     right:
-      - text: Languages
+      - text: Язык
         menu:
           - text: English
-            href: "en/index.html"
-          - text: Français
-            href: "fr/index.html"
-          - text: Русский
-            href: "ru/index.html"
-
-execute:
-  freeze: auto
-
+            href: "../en/{{< meta filename >}}.html"
+          - text: Francais
+            href: "../fr/{{< meta filename >}}.html"
 format:
   html:
     toc: true

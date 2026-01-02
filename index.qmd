@@ -6,3 +6,9 @@ output: html
 Welcome! I am a senior data scientist working in consumer price statistics
 
 ![](https://avatars.githubusercontent.com/u/22065334?v=4){width="30%"}.
+
+Navigate to the:
+
+-   [English site](/en/index.qmd)
+-   [Site français](/fr/index.qmd)
+-   [Русский сайт](/ru/index.qmd)

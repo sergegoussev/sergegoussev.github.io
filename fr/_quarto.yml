@@ -1,11 +1,6 @@
 project:
   type: website
-  output-dir: _site
-
-projects:
-  - en
-  - fr
-  - ru
+  output-dir: ../_site/fr
 
 website:
   title: "Serge Goussev"
@@ -21,19 +16,14 @@ website:
     search: true
     left:
       - href: index.qmd
+      - href: cv.qmd
     right:
-      - text: Languages
+      - text: Langue
         menu:
-          - text: English
-            href: "en/index.html"
-          - text: Français
-            href: "fr/index.html"
           - text: Русский
-            href: "ru/index.html"
-
-execute:
-  freeze: auto
-
+            href: "../ru/{{< meta filename >}}.html"
+          - text: Francais
+            href: "../fr/{{< meta filename >}}.html"
 format:
   html:
     toc: true
