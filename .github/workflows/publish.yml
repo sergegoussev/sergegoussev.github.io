@@ -17,6 +17,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install tinytex
+        run: quarto install tinytex
+
       - name: Render English
         run: quarto render --profile en
 
@@ -25,9 +28,6 @@ jobs:
 
       - name: Render main site
         run: quarto render redirect.qmd -o index.html
-
-      # - name: Copy redirect
-      #   run: cp index.html _site/index.html
 
       - name: Add .nojekyll
         run: touch _site/.nojekyll

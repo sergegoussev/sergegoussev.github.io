@@ -1,6 +1,11 @@
 project:
   render:
-    - content/
+    - content/*.fr.qmd
+    - content/*/*.fr.qmd
+    - content/*/*/*.fr.qmd
+    - "!content/*.en.qmd"
+    - "!content/*/*.en.qmd"
+    - "!content/*/*/*.en.qmd"
     - "!redirect.qmd"
   output-dir: _site/fr
 
@@ -10,11 +15,11 @@ website:
   title: "Mon Site Web"
   navbar:
     left:
-      - href: content/index.qmd
+      - href: content/index.fr.qmd
         text: Accueil
-      - href: content/cv.qmd
+      - href: content/cv.fr.qmd
         text: CV
-      - href: content/blog.qmd
+      - href: content/blogs/index.fr.qmd
         text: Blog
     right:
       - href: ../en/content/{{< meta filename >}}.html

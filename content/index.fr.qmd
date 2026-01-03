@@ -1,0 +1,17 @@
+---
+title: "Accuel"
+subtitle: |
+  Le subtitre va ici!
+  Supposons que nous voulons également y ajouter deux lignes.
+description: "Nous devrions également avoir une description !"
+keywords: ["résumé", "introduction"]
+format: 
+  html:
+    toc: true
+
+# Multilingual configurations
+filename: index
+output-file: "index.html"
+---
+
+{{< include _index_content.qmd >}}

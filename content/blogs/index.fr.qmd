@@ -1,10 +1,11 @@
 ---
 title: "Blog"
-filename: blog
+output-file: "index"
+filename: "blogs/index"
 listing:
   id: blogs
   contents: 
-    - /blogs/*/index.qmd
+    - /**/*.fr.qmd
   sort: "title"
   type: table
   categories: true

@@ -1,0 +1,19 @@
+---
+title: CV
+subtitle: Professinal experience!
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+  html:
+    toc: true
+    toc-expand: 2
+    body-width: 1200px 
+
+# Multilingual configurations
+output-file: "cv"
+filename: "cv"
+---
+
+
+{{< include _cv_content.qmd >}}

@@ -1,0 +1,17 @@
+---
+title: "Home"
+subtitle: |
+  Subtitle goes here!
+  Let's say we want to have two lines on it as well.
+description: "We should have a description as well!"
+keywords: ["summary", "introduction"]
+format:
+  html:
+    toc: true
+
+# Multilingual configurations
+filename: index
+output-file: "index.html"
+---
+
+{{< include _index_content.qmd >}}

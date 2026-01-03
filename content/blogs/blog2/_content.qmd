@@ -1,14 +1,8 @@
----
-title: CV
-filename: "cv"
-output: html
----
-
 ::: {.content-visible when-profile="en"}
-Work experience
+English blog content
 :::
 
 ::: {.content-visible when-profile="fr"}
-Experience de travail
+Contenu du blog français
 :::
 
