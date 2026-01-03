@@ -1,5 +1,6 @@
 ---
 title: "Sampling methods for scanner data"
+filename: "blogs/scanner-sampling/index"
 author: Serge Goussev
 date: 2024-11-01
 format:

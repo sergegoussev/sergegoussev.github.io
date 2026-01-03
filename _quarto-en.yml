@@ -1,4 +1,7 @@
 project:
+  render:
+    - content/
+    - "!redirect.qmd"
   output-dir: _site/en 
 
 lang: en
@@ -14,5 +17,5 @@ website:
       - href: content/blog.qmd
         text: Blog
     right:
-      - href: ../fr/index.html 
+      - href: ../fr/content/{{< meta filename >}}.html
         text: Français

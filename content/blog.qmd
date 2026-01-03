@@ -1,5 +1,6 @@
 ---
-title: "Blogs"
+title: "Blog"
+filename: blog
 listing:
   id: blogs
   contents: 

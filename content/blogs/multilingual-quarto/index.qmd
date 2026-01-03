@@ -1,5 +1,7 @@
 ---
 title: "Multilingual Quarto sites"
+filename: "blogs/multilingual-quarto/index"
+draft: true
 author: Serge Goussev
 date: 2026-01-02
 format:

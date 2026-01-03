@@ -1,0 +1,19 @@
+---
+format:
+  html:
+    minimal: true # Skips loading the full navbar/theme for speed
+---
+
+<meta http-equiv="refresh" content="0; url=./en/">
+
+<script>
+  window.location.href = "./en/";
+</script>
+
+::: {.card}
+::: {.card-body}
+#### Welcome! Navigate to either language
+- <a href="./en/">English site</a>
+- <a href="./fr/">French site</a>
+:::
+:::
