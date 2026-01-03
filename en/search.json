@@ -1,24 +1,17 @@
 [
   {
-    "objectID": "content/blogs/multilingual-quarto/index.html",
-    "href": "content/blogs/multilingual-quarto/index.html",
-    "title": "Multilingual Quarto sites",
+    "objectID": "content/blogs/blog2/index.html",
+    "href": "content/blogs/blog2/index.html",
+    "title": "Blog 2",
     "section": "",
-    "text": "Overview\n\n\n\n\n Back to top"
+    "text": "English blog content\n\n\n\n Back to top"
   },
   {
-    "objectID": "content/blog.html",
-    "href": "content/blog.html",
+    "objectID": "content/blogs/index.html",
+    "href": "content/blogs/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nMultilingual Quarto sites\n\n\nquarto\n\n\nJan 2, 2026\n\n\n\n\n\n\nSampling methods for scanner data\n\n\nscanner data, sampling, price indices\n\n\nNov 1, 2024\n\n\n\n\n\n\nNo matching items\n Back to top"
-  },
-  {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Hello!\n\n\n\n Back to top"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBlog 1\n\n\ncategory 1\n\n\nJan 2, 2026\n\n\n\n\n\n\nBlog 2\n\n\ncategory 4, category 5\n\n\nJan 2, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "content/cv.html",
@@ -28,10 +21,17 @@
     "text": "Work experience\n\n\n\n Back to top"
   },
   {
-    "objectID": "content/blogs/scanner-sampling/index.html",
-    "href": "content/blogs/scanner-sampling/index.html",
-    "title": "Sampling methods for scanner data",
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "Home",
     "section": "",
-    "text": "Overview\n\n\n\n\n Back to top"
+    "text": "Hello!\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "content/blogs/blog1/index.html",
+    "href": "content/blogs/blog1/index.html",
+    "title": "Blog 1",
+    "section": "",
+    "text": "English blog content\n\n\n\n Back to top"
   }
 ]
