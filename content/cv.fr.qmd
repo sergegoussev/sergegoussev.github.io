@@ -1,8 +1,6 @@
 ---
 title: CV
 subtitle: Mes experiences professionnelles
-output-file: "cv"
-filename: "cv"
 format:
   pdf:
     documentclass: article
@@ -11,6 +9,10 @@ format:
     toc: true
     toc-expand: 2
     body-width: 1200px 
+
+# Multilingual configurations
+output-file: "cv"
+filename: "cv"
 ---
 
 

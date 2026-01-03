@@ -1,7 +1,5 @@
 ---
 title: "Blog 1"
-filename: "blogs/blog1/index"
-output-file: "index"
 draft: true
 author: First Last
 date: 2026-01-02
@@ -12,6 +10,10 @@ format:
 
 categories:
   - catégorie 1
+
+# Multilingual configurations
+filename: "blogs/blog1/index"
+output-file: "index"
 ---
 
 {{< include _content.qmd >}}

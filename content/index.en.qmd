@@ -5,11 +5,13 @@ subtitle: |
   Let's say we want to have two lines on it as well.
 description: "We should have a description as well!"
 keywords: ["summary", "introduction"]
-filename: index
-output-file: "index.html"
 format:
   html:
     toc: true
+
+# Multilingual configurations
+filename: index
+output-file: "index.html"
 ---
 
 {{< include _index_content.qmd >}}

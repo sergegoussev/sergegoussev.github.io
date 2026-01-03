@@ -29,9 +29,6 @@ jobs:
       - name: Render main site
         run: quarto render redirect.qmd -o index.html
 
-      # - name: Copy redirect
-      #   run: cp index.html _site/index.html
-
       - name: Add .nojekyll
         run: touch _site/.nojekyll
 
