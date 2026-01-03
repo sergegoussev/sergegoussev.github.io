@@ -1,0 +1,14 @@
+---
+title: CV
+filename: "cv"
+output: html
+---
+
+::: {.content-visible when-profile="en"}
+Work experience
+:::
+
+::: {.content-visible when-profile="fr"}
+Experience de travail
+:::
+

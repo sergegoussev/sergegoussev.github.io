@@ -1,14 +1,5 @@
 ---
-title: "Home"
-filename: index
-output: html
+format: html
 ---
-
-
-::: {.content-visible when-profile="en"}
-Hello!
-:::
-
-::: {.content-visible when-profile="fr"}
-Bonjour!
-:::
+<meta http-equiv="refresh" content="0; url=./en/">
+<script>window.location = "./en/";</script>

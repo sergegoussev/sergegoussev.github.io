@@ -1,0 +1,14 @@
+---
+title: "Multilingual Quarto sites"
+author: Serge Goussev
+date: 2026-01-02
+format:
+  html:
+    toc: true
+    toc-expand: 2
+
+categories:
+  - quarto
+---
+
+# Overview

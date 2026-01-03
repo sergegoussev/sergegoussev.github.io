@@ -1,14 +1,14 @@
 ---
-title: About me
-filename: "cv"
+title: "Home"
+filename: index
 output: html
 ---
 
+
 ::: {.content-visible when-profile="en"}
-Work experience
+Hello!
 :::
 
 ::: {.content-visible when-profile="fr"}
-Experience de travail
+Bonjour!
 :::
-

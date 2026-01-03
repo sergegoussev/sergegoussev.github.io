@@ -1,0 +1,15 @@
+---
+title: "Blogs"
+listing:
+  id: blogs
+  contents: 
+    - /blogs/*/index.qmd
+  sort: "title"
+  type: table
+  categories: true
+  fields: [title, categories, date]
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---

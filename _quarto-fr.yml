@@ -7,11 +7,12 @@ website:
   title: "Mon Site Web"
   navbar:
     left:
-      - href: index.qmd
+      - href: content/index.qmd
         text: Accueil
-      - href: about.qmd
-        text: À Propos
+      - href: content/cv.qmd
+        text: CV
+      - href: content/blog.qmd
+        text: Blog
     right:
-      # Link back to the English version
       - href: ../en/index.html 
         text: English
