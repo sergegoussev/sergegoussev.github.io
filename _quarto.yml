@@ -1,7 +1,5 @@
 project:
   type: website
-  output-dir: _site/
-
 
 website:
   title: "Serge Goussev"
@@ -12,6 +10,10 @@ website:
   back-to-top-navigation: true
   search: true
   draft-mode: visible
+
+profile:
+  default: english
+  group: [english, french]
 
 format:
   html:

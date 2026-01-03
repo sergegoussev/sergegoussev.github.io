@@ -1,4 +1,7 @@
 project:
+  render:
+    - content/
+    - "!redirect.qmd"
   output-dir: _site/en 
 
 lang: en
@@ -7,11 +10,12 @@ website:
   title: "My Website"
   navbar:
     left:
-      - href: index.qmd
+      - href: content/index.qmd
         text: Home
-      - href: about.qmd
-        text: About
+      - href: content/cv.qmd
+        text: CV
+      - href: content/blog.qmd
+        text: Blog
     right:
-      # Link to the French version
-      - href: ../fr/index.html 
+      - href: ../fr/content/{{< meta filename >}}.html
         text: Français

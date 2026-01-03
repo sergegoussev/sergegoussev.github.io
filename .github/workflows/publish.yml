@@ -2,7 +2,8 @@ name: Quarto Publish
 
 on:
   push:
-    branches: main
+    branches: ['**']
+  workflow_dispatch:
 
 jobs:
   build-deploy:
@@ -19,14 +20,17 @@ jobs:
       - name: Render English
         run: quarto render --profile en
 
-      - name: Render Russian
+      - name: Render French
         run: quarto render --profile fr
+
+      - name: Render main site
+        run: quarto render redirect.qmd -o index.html
+
+      # - name: Copy redirect
+      #   run: cp index.html _site/index.html
 
       - name: Add .nojekyll
         run: touch _site/.nojekyll
-
-      # - run: echo '<meta http-equiv="refresh" content="0; url=en/">' > _site/index.html
-      - run: cp index.html _site/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
