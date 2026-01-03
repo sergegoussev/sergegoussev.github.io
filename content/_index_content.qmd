@@ -1,0 +1,7 @@
+::: {.content-visible when-profile="en"}
+Hello!
+:::
+
+::: {.content-visible when-profile="fr"}
+Bonjour!
+:::

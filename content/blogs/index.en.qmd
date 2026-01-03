@@ -1,0 +1,17 @@
+---
+title: "Blog"
+output-file: "index"
+filename: "blogs/index"
+listing:
+  id: blogs
+  contents: 
+    - /**/*.en.qmd
+  sort: "title"
+  type: table
+  categories: true
+  fields: [title, categories, date]
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---

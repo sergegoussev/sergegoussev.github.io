@@ -1,0 +1,17 @@
+---
+title: CV
+subtitle: Mes experiences professionnelles
+output-file: "cv"
+filename: "cv"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+  html:
+    toc: true
+    toc-expand: 2
+    body-width: 1200px 
+---
+
+
+{{< include _cv_content.qmd >}}

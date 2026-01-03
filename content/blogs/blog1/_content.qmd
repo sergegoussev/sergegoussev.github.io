@@ -1,14 +1,8 @@
----
-title: "Home"
-filename: index
-output: html
----
-
-
 ::: {.content-visible when-profile="en"}
-Hello!
+English blog content
 :::
 
 ::: {.content-visible when-profile="fr"}
-Bonjour!
+Contenu du blog français
 :::
+
