@@ -1,9 +1,7 @@
-
 ::: {.content-visible when-profile="en"}
-Work experience
+Work experience... 
 :::
 
 ::: {.content-visible when-profile="fr"}
-Experience de travail
+Expérience de travail...
 :::
-

@@ -1,0 +1,23 @@
+---
+title: "Quarto multilingue"
+subtitle: "Les options à votre disposition et les points à considérer si votre site est un peu complexe."
+draft: true
+date: 2026-01-03
+format:
+  html:
+    toc: true
+    toc-expand: 2
+
+categories:
+  - Quartos
+
+# Multilingual configurations
+filename: "blogs/multilingual-quarto/index"
+output-file: "index"
+---
+
+::: callout-important
+## Ce blog n'est pas encore traduit
+
+[Cliquez ici](../en/content/{{< meta filename >}}.html) pour le lire en anglais.
+:::

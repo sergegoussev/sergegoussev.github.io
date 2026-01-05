@@ -1,0 +1,16 @@
+# Options to apply to all posts
+
+# freeze computational output
+freeze: true
+
+# Enable banner style title blocks
+title-block-banner: true
+
+# Author name of all blog posts
+author: 'Serge Goussev'
+
+# Table of content settings
+toc: true
+toc-depth: 3
+
+page-layout: article

@@ -1,7 +1,33 @@
-::: {.content-visible when-profile="en"}
-Hello!
+::::: {.content-visible when-profile="en"}
+
+:::: {.columns}
+::: {.column width="70%"}
+Hi! 👋 I am Serge! Welcome to my site!
+
+I am a senior data scientist and an independent researcher. While my focus tends to be on price statistics and Machine Learning, I have also written on computational social science and other topics.
+
+I keep this site to summarize my own thoughts and empirical experiments. All content shared here is based on public information and is strictly my opinion (usually based on a set of sources that I try to reference). 
 :::
 
-::: {.content-visible when-profile="fr"}
-Bonjour!
+::: {.column width="30%"}
+![](https://avatars.githubusercontent.com/u/22065334?v=4)
 :::
+
+::::
+:::::
+
+::::: {.content-visible when-profile="fr"}
+:::: {.columns}
+::: {.column width="70%"}
+Salut ! 👋 Je suis Serge ! Bienvenue sur mon site !
+
+Je suis scientifique des données principal et chercheur indépendant. Bien que je me spécialise dans les statistiques de prix et l'apprentissage machine, j'ai aussi écrit sur les sciences sociales computationnelles et d'autres sujets.
+
+Ce site me permet de synthétiser mes réflexions et mes expériences empiriques. Tout le contenu partagé ici est basé sur des informations publiques et reflète uniquement mon opinion (généralement fondée sur un ensemble de sources que je m'efforce de citer).
+:::
+
+::: {.column width="30%"}
+![](https://avatars.githubusercontent.com/u/22065334?v=4)
+:::
+::::
+:::::

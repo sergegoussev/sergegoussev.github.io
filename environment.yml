@@ -1,0 +1,40 @@
+name: my-site
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python packages
+  - python=3.12
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - ipykernel
+  - pyarrow
+  - itables
+  - plotly
+  - matplotlib
+  - openpyxl
+
+  # R packages
+  - r-base
+  - r-tidyverse
+  - r-irkernel
+  - r-essentials
+  - r-arrow
+  - r-dplyr
+  - r-plotly
+  - r-DT
+
+  # Other tools
+  - mamba
+  - pip
+  - git
+
+  # price-index packages
+  - r-gpindex
+  - pip:
+    - git+https://github.com/wspackman/PriceIndexCalc.git
+  
