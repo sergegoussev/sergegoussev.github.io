@@ -1,7 +1,6 @@
 ---
 title: "Blog 2"
 draft: true
-author: First Last
 date: 2026-01-02
 format:
   html:

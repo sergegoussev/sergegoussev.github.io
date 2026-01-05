@@ -1,9 +1,5 @@
 ---
-title: "Home"
-subtitle: |
-  Subtitle goes here!
-  Let's say we want to have two lines on it as well.
-description: "We should have a description as well!"
+title: "About me"
 keywords: ["summary", "introduction"]
 format:
   html:

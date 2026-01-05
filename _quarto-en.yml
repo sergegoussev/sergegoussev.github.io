@@ -16,11 +16,8 @@ website:
   navbar:
     left:
       - href: content/index.en.qmd
-        text: Home
       - href: content/cv.en.qmd
-        text: CV
       - href: content/blogs/index.en.qmd
-        text: Blog
     right:
       - href: ../fr/content/{{< meta filename >}}.html
         text: Français

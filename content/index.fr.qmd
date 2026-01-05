@@ -1,9 +1,5 @@
 ---
-title: "Accuel"
-subtitle: |
-  Le subtitre va ici!
-  Supposons que nous voulons également y ajouter deux lignes.
-description: "Nous devrions également avoir une description !"
+title: "À propos de moi"
 keywords: ["résumé", "introduction"]
 format: 
   html:
