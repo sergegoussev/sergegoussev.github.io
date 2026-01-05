@@ -1,36 +1,64 @@
 [
   {
-    "objectID": "content/blogs/blog2/index.html",
-    "href": "content/blogs/blog2/index.html",
-    "title": "Blog 2",
+    "objectID": "content/blogs/multilingual-quarto/index.html",
+    "href": "content/blogs/multilingual-quarto/index.html",
+    "title": "Multilingual Quarto site",
     "section": "",
-    "text": "English blog content\n\n\n\n Back to top"
+    "text": "“There are no solutions—there are only tradeoffs.” -Thomas Sowell"
+  },
+  {
+    "objectID": "content/blogs/multilingual-quarto/index.html#option-1-quarto-profiles",
+    "href": "content/blogs/multilingual-quarto/index.html#option-1-quarto-profiles",
+    "title": "Multilingual Quarto site",
+    "section": "Option 1: Quarto profiles",
+    "text": "Option 1: Quarto profiles\nQuarto profiles is one of the top options (one that LLMs seem to recommend most :P). You set up a set of profiles and can switch between them easily enough. Your project also shares one main _quarto.yml, meaning that you have one standard project with shared configuration. This will help as you can share code, data and other info in your repo quite easily and the default folder structure (and shared content will keep).2\n\nOverview\n\nSetup a _quarto-{language}.yml for each language profile alongside the default project setup specified in your _quarto.yml (the detail in the project setup is for shared content as most navigation and related language specific metadata are moved to each language profile).\nRender each specific language profile separately (i.e. quarto render --profile en renders the _quarto_en.yml to _site/en) as well as a central index.qmd to create a default landing index.html in _site/ for visitors to choose the language of their choice (or to automatically redirect to a specific language). You can also setup any extra central pages such as a 404.qmd.\nContent can be generated in a couple ways:\n\nFor simple cases, one .qmd file can be used with language specific sections (using conditional content feature, i.e. {.content-visible when-profile=\"en\"}).\nFor more complex scenarios (such as to keep cleaner qmd files or to add multilingual metadata), separate language specific pages (i.e. *.en.qmd and *.fr.qmd). For content that needs to be shared between both languages, a separate file can be created and integrated, such as using {{ &lt; include _shared-content.qmd &gt;}}.\nFolder structure can be setup with separate folders per language for maximum isolation or using one structure for simplicity.\n\nA toggle between languages can be hard coded to redirect to the home page of the other language or handled dynamically (a custom metadata tag can be added to each .qmd file and referenced in the _quarto-{language}.yml (i.e. href: ../fr/content/blogs/multilingual-quarto/index.html will reference filename: \"/blog/blog1\" in each qmd file).\n\n\n\nChallenges\n\nIf translation of all page metadata is needed, it becomes necessary to specify the info using language specific qmd files (similar to option 3 as babelquarto requires the same).\nI didn’t explore this, but image that if you want to use Quarto profiles for its other intended purpose (such as environments), then it could get more complex quite quickly as you’d be dealing with 4 or more files.\n\n\n\nNotable examples / resources\n\n\n\n\n\n\nImportantPersonal examples\n\n\n\nThis site is organized using this approach (see the repo). In setting it up, I also created a separate vanilla example: https://github.com/sergegoussev/multilingual-quarto-ex\n\n\nI would also recommend:\n\nMario Angst’s blog provides a good intro to the topic"
+  },
+  {
+    "objectID": "content/blogs/multilingual-quarto/index.html#option-2-separate-quarto-projects-in-one-repo",
+    "href": "content/blogs/multilingual-quarto/index.html#option-2-separate-quarto-projects-in-one-repo",
+    "title": "Multilingual Quarto site",
+    "section": "Option 2: Separate Quarto projects in one repo",
+    "text": "Option 2: Separate Quarto projects in one repo\nThe second option for even more customization is to setup separate directories per language with separate _quarto.yml per language. This setup creates two (or more) isolated quarto projects. This is quite similar to using profiles with separate language directories, but ensures more isolation between language.\n\nOverview\n\nUsing separate projects ensures that you have maximum isolation between each language part of the site. However to not have to repeat yourself (such as to not have to duplicate css, code, or other content), you can put them in common folders.\nEach project is rendered separately and combined in a custom way\n\n\n\n\n\n\n\nCautionArea still WIP\n\n\n\nI’ll prob explore this option in a bit more detail and flush out the description.\n\n\n/root\n  ├── _common/\n  │    ├── index.qmd    &lt;-- home landing page\n  │    ├── 404.qmd \n  │    ├── styles.css\n  │    └── theme.scss\n  ├── en/\n  │    ├── _quarto.yml  &lt;-- references ../_common/theme.scss\n  │    └── index.qmd\n  └── fr/\n       ├── _quarto.yml  &lt;-- references ../_common/theme.scss\n       └── index.qmd\n\n\nExamples / further reading\nA few examples seem to be:\n\nGuillem Maya’s site seems to leverage this approach as the repo follows the structure."
+  },
+  {
+    "objectID": "content/blogs/multilingual-quarto/index.html#option-3-babelquarto",
+    "href": "content/blogs/multilingual-quarto/index.html#option-3-babelquarto",
+    "title": "Multilingual Quarto site",
+    "section": "Option 3: babelquarto",
+    "text": "Option 3: babelquarto\nbabelquarto is a third option. It requires the use of R (instead of quarto) and is not rendered from CRAN but from R Open Science. The option is very similar to option 1 if separate language specific files are used.\n\nOverview\n\nInstead of doing the customization of language switching and being careful about rendering and redirects, babelquarto can do the setup for you. As its an R package, you need to use R to render locally and within your publish.yml to have GitHub render your site. Once set up, it basically makes it easier to maintain language switching as you don’t have to do this part yourself and let babelquarto do it for you.\n\n\n\nNuances\n\nThe biggest issue that I can see is that the main language is rendered from the root directory, whereas the other languages use a sub-directory. In other words if English is the default, its rendered from project/index.html and French as a secondary would be rendered from project/fr/index.html. This is counter to i18n guidelines as consistency between languages is recommended.\n\nThis also makes it a tad less intuitive if you need to setup a default index.html page to give visitors a choice about which site they wish to proceed to (as with the other two options).\n\nAs a separate R package, this option comes with its own nuances and tradeoffs, including:\n\nUsing it introduces a new dependency. You have to learn how to use it and keep an eye on its evolution and interaction with Quarto.\nBy learning and maintaining your skills in babelquarto, you are adding a to your knowledge of Quarto in a way that does not make you more competent in Quarto itself. In other words, this option slightly broadens your cognitive load as you need to also know this package and still know quarto, whereas deeper expertise in just quarto may serve you well in the future.\n\nAs you are setting up and running R to render you need to ensure your setup is appropriate. For instance a GitHub runner needs to takes a bit longer to setup R and install your renv.lock and also render compared to just using Quarto. T\n\nFurthermore, walking away from Quarto CLI features means you are loosing some ability to customize things that the CLI gives you, such as rendering a specific language to a specific directory (say quarto render —profile: en – )\n\n\n\n\nNotable examples / resources\n\n\n\n\n\n\nImportantPersonal examples\n\n\n\nIn exploring this option, I created a separate vanilla example: https://github.com/sergegoussev/babelquarto-example.\n\n\nIf this sounds interesting, have a look at:\n\nA blog by Joel Nitta “Multilingual Webpages with `Babelquarto` (Part 1 of 2).” 2024. December 6, 2024\n\nHe also provides a separate vanilla example (less complex than the one I set up): https://github.com/joelnitta/example-babelquarto/\n\nbabelquarto home site"
+  },
+  {
+    "objectID": "content/blogs/multilingual-quarto/index.html#footnotes",
+    "href": "content/blogs/multilingual-quarto/index.html#footnotes",
+    "title": "Multilingual Quarto site",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThere is a rich discussion on the topic here: https://github.com/quarto-dev/quarto-cli/issues/275↩︎\nA few like Martin Angst wrote about it.↩︎\nSee example by Lino Galiana.↩︎"
   },
   {
     "objectID": "content/blogs/index.html",
     "href": "content/blogs/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBlog 1\n\n\ncategory 1\n\n\nJan 2, 2026\n\n\n\n\n\n\nBlog 2\n\n\ncategory 4, category 5\n\n\nJan 2, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBlog 2\n\n\ncategory 4, category 5\n\n\nJan 2, 2026\n\n\n\n\n\n\nMultilingual Quarto site\n\n\nquarto\n\n\nJan 3, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "content/cv.html",
     "href": "content/cv.html",
     "title": "CV",
     "section": "",
-    "text": "Work experience\n\n\n\n Back to top"
+    "text": "Work experience…\n\n\n\n Back to top"
   },
   {
     "objectID": "content/index.html",
     "href": "content/index.html",
-    "title": "Home",
+    "title": "About me",
     "section": "",
-    "text": "Hello!\n\n\n\n Back to top"
+    "text": "Hi! 👋 I am Serge! Welcome to my site!\nI am a senior data scientist and an independent researcher. While my focus tends to be on price statistics and Machine Learning, I have also written on computational social science and other topics.\nI keep this site to summarize my own thoughts and empirical experiments. All content shared here is based on public information and is strictly my opinion (usually based on a set of sources that I try to reference).\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "content/blogs/blog1/index.html",
-    "href": "content/blogs/blog1/index.html",
-    "title": "Blog 1",
+    "objectID": "content/blogs/blog2/index.html",
+    "href": "content/blogs/blog2/index.html",
+    "title": "Blog 2",
     "section": "",
     "text": "English blog content\n\n\n\n Back to top"
   }

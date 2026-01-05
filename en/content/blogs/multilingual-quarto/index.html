@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="First Last">
-<meta name="dcterms.date" content="2026-01-02">
+<meta name="author" content="Serge Goussev">
+<meta name="dcterms.date" content="2026-01-03">
 
-<title>Blog 1 – My Website</title>
+<title>Multilingual Quarto site – My Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -244,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -260,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../../content/index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../content/cv.html"> 
@@ -273,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../fr/content/blogs/blog1/index.html"> 
+    <a class="nav-link" href="../../../../fr/content/blogs/multilingual-quarto/index.html"> 
 <span class="menu-text">Français</span></a>
   </li>  
 </ul>
@@ -285,55 +285,296 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Multilingual Quarto site</h1>
+            <p class="subtitle lead">The options you can use and the considerations to keep in mind if you have a site that’s a touch complex</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">quarto</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Serge Goussev </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 3, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="block-title">Abstract</div>
+      <p>As far as I am aware (as of eary 2026), there isn’t a good assessment of the options (and their tradeoffs) when it comes to setting up a multilingual site using Quarto. There are a large number of customizations and some blogs summarizing one or another option, often with nuances and weaknesses. This blog tries to provide a coherent narrative and summarize my own assessment of the options and tradeoffs. For context, I wanted to aim for something semi-robust and make it look like it approached i18n (such as Government of Canada or UN sites).</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#options" id="toc-options" class="nav-link active" data-scroll-target="#options">Options</a>
+  <ul class="collapse">
+  <li><a href="#option-1-quarto-profiles" id="toc-option-1-quarto-profiles" class="nav-link" data-scroll-target="#option-1-quarto-profiles">Option 1: Quarto profiles</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a></li>
+  <li><a href="#notable-examples-resources" id="toc-notable-examples-resources" class="nav-link" data-scroll-target="#notable-examples-resources">Notable examples / resources</a></li>
+  </ul></li>
+  <li><a href="#option-2-separate-quarto-projects-in-one-repo" id="toc-option-2-separate-quarto-projects-in-one-repo" class="nav-link" data-scroll-target="#option-2-separate-quarto-projects-in-one-repo">Option 2: Separate Quarto projects in one repo</a>
+  <ul class="collapse">
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a></li>
+  <li><a href="#examples-further-reading" id="toc-examples-further-reading" class="nav-link" data-scroll-target="#examples-further-reading">Examples / further reading</a></li>
+  </ul></li>
+  <li><a href="#option-3-babelquarto" id="toc-option-3-babelquarto" class="nav-link" data-scroll-target="#option-3-babelquarto">Option 3: babelquarto</a>
+  <ul class="collapse">
+  <li><a href="#overview-2" id="toc-overview-2" class="nav-link" data-scroll-target="#overview-2">Overview</a></li>
+  <li><a href="#nuances" id="toc-nuances" class="nav-link" data-scroll-target="#nuances">Nuances</a></li>
+  <li><a href="#notable-examples-resources-1" id="toc-notable-examples-resources-1" class="nav-link" data-scroll-target="#notable-examples-resources-1">Notable examples / resources</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#requirements-for-a-multilingual-site" id="toc-requirements-for-a-multilingual-site" class="nav-link" data-scroll-target="#requirements-for-a-multilingual-site">Requirements for a multilingual site</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key takeaways</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/sergegoussev.github.io/blob/main/content/blogs/multilingual-quarto/index.en.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog 1</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">category 1</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>First Last </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 2, 2026</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>English blog content</p>
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<blockquote class="blockquote">
+<p>“There are no solutions—there are only tradeoffs.” -Thomas Sowell</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>tl;dr
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Quarto can handle multilingual sites (as in multiple human languages), however it is not set up to do so easily by default.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>As of early 2026, there are 3 options to choose from if you want to set this up:
+<ol type="i">
+<li>Setting up one quarto project (i.e.&nbsp;one <code>_quarto.yml</code>) and using <a href="https://quarto.org/docs/projects/profiles.html">Quarto profiles</a> to customize language</li>
+<li>Setting up two (or more) separate quarto projects in separate sub-directories and hosting them together.</li>
+<li>A semi-automated way using <code>babelquarto</code> that is quite similar to option i.</li>
+</ol></li>
+<li>All options end up working, however there are some nuances in how each are set up and tradeoffs that you face. There is no clear winner in my mind.</li>
+</ul>
+</div>
+</div>
+<section id="options" class="level1">
+<h1>Options</h1>
+<p>As far as I am aware, there are three options. In reality there are lots of nuances and similarities between the options (and there are off course different ways you can set up each). For simplicity however, let’s consider each.</p>
+<section id="option-1-quarto-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="option-1-quarto-profiles">Option 1: Quarto profiles</h2>
+<p><a href="https://quarto.org/docs/projects/profiles.html">Quarto profiles</a> is one of the top options (one that LLMs seem to recommend most :P). You set up a set of profiles and can switch between them easily enough. Your project also shares one main <code>_quarto.yml</code>, meaning that you have one standard project with shared configuration. This will help as you can share code, data and other info in your repo quite easily and the default folder structure (and shared content will keep).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<ul>
+<li><p>Setup a <code>_quarto-{language}.yml</code> for each language profile alongside the default project setup specified in your <code>_quarto.yml</code> (the detail in the project setup is for shared content as most navigation and related language specific metadata are moved to each language profile).</p></li>
+<li><p>Render each specific language profile separately (i.e.&nbsp;<code>quarto render --profile en</code> renders the <code>_quarto_en.yml</code> to <code>_site/en</code>) as well as a central <code>index.qmd</code> to create a default landing <code>index.html</code> in <code>_site/</code> for visitors to choose the language of their choice (or to automatically redirect to a specific language). You can also setup any extra central pages such as a <code>404.qmd</code>.</p></li>
+<li><p>Content can be generated in a couple ways:</p>
+<ul>
+<li>For simple cases, one <code>.qmd</code> file can be used with language specific sections (using <a href="https://quarto.org/docs/authoring/conditional.html">conditional content feature</a>, i.e.&nbsp;<code>{.content-visible when-profile="en"}</code>).</li>
+<li>For more complex scenarios (such as to keep cleaner <code>qmd</code> files or to add multilingual metadata), separate language specific pages (i.e.&nbsp;<code>*.en.qmd</code> and <code>*.fr.qmd</code>). For content that needs to be shared between both languages, a separate file can be created and integrated, such as using <code>{{ &lt; include _shared-content.qmd &gt;}}</code>.</li>
+<li>Folder structure can be setup with separate folders per language for maximum isolation or using one structure for simplicity.</li>
+</ul></li>
+<li><p>A toggle between languages can be hard coded to redirect to the home page of the other language or handled dynamically (a custom metadata tag can be added to each <code>.qmd</code> file and referenced in the <code>_quarto-{language}.yml (</code>i.e.&nbsp;<code>href: ../fr/content/blogs/multilingual-quarto/index.html</code> will reference <code>filename: "/blog/blog1"</code> in each <code>qmd</code> file).</p></li>
+</ul>
+</section>
+<section id="challenges" class="level3">
+<h3 class="anchored" data-anchor-id="challenges">Challenges</h3>
+<ul>
+<li>If translation of all page metadata is needed, it becomes necessary to specify the info using language specific <code>qmd</code> files (similar to option 3 as <code>babelquarto</code> requires the same).</li>
+<li>I didn’t explore this, but image that if you want to use Quarto profiles for its other intended purpose (such as environments), then it could get more complex quite quickly as you’d be dealing with 4 or more files.</li>
+</ul>
+</section>
+<section id="notable-examples-resources" class="level3">
+<h3 class="anchored" data-anchor-id="notable-examples-resources">Notable examples / resources</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Personal examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This site is organized using this approach (see <a href="https://github.com/sergegoussev/sergegoussev.github.io">the repo</a>). In setting it up, I also created a separate vanilla example: <a href="https://github.com/sergegoussev/multilingual-quarto-ex" class="uri">https://github.com/sergegoussev/multilingual-quarto-ex</a></p>
+</div>
+</div>
+<p>I would also recommend:</p>
+<ul>
+<li><a href="https://marioangst.com/en/blog/posts/multi-language-quarto/">Mario Angst’s blog provides a good intro to the topic</a></li>
+</ul>
+</section>
+</section>
+<section id="option-2-separate-quarto-projects-in-one-repo" class="level2">
+<h2 class="anchored" data-anchor-id="option-2-separate-quarto-projects-in-one-repo">Option 2: Separate Quarto projects in one repo</h2>
+<p>The second option for even more customization is to setup separate directories per language with separate <code>_quarto.yml</code> per language. This setup creates two (or more) isolated quarto projects. This is quite similar to using profiles with separate language directories, but ensures more isolation between language.</p>
+<section id="overview-1" class="level3">
+<h3 class="anchored" data-anchor-id="overview-1">Overview</h3>
+<ul>
+<li>Using separate projects ensures that you have maximum isolation between each language part of the site. However to not have to repeat yourself (such as to not have to duplicate css, code, or other content), you can put them in common folders.</li>
+<li>Each project is rendered separately and combined in a custom way</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Area still WIP
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I’ll prob explore this option in a bit more detail and flush out the description.</p>
+</div>
+</div>
+<pre class="raw"><code>/root
+  ├── _common/
+  │    ├── index.qmd    &lt;-- home landing page
+  │    ├── 404.qmd 
+  │    ├── styles.css
+  │    └── theme.scss
+  ├── en/
+  │    ├── _quarto.yml  &lt;-- references ../_common/theme.scss
+  │    └── index.qmd
+  └── fr/
+       ├── _quarto.yml  &lt;-- references ../_common/theme.scss
+       └── index.qmd</code></pre>
+</section>
+<section id="examples-further-reading" class="level3">
+<h3 class="anchored" data-anchor-id="examples-further-reading">Examples / further reading</h3>
+<p>A few examples seem to be:</p>
+<ul>
+<li><a href="https://guillemmaya.com/">Guillem Maya’s site</a> seems to leverage this approach as the <a href="https://github.com/guillemmaya92/guillemmaya92.github.io/tree/main">repo follows the structure</a>.</li>
+</ul>
+</section>
+</section>
+<section id="option-3-babelquarto" class="level2">
+<h2 class="anchored" data-anchor-id="option-3-babelquarto">Option 3: babelquarto</h2>
+<p><a href="https://docs.ropensci.org/babelquarto/">babelquarto</a> is a third option. It requires the use of R (instead of quarto) and is not rendered from CRAN but from R Open Science. The option is very similar to option 1 if separate language specific files are used.</p>
+<section id="overview-2" class="level3">
+<h3 class="anchored" data-anchor-id="overview-2">Overview</h3>
+<ul>
+<li>Instead of doing the customization of language switching and being careful about rendering and redirects, <code>babelquarto</code> can do the setup for you. As its an R package, you need to use R to render locally and within your <code>publish.yml</code> to have GitHub render your site. Once set up, it basically makes it easier to maintain language switching as you don’t have to do this part yourself and let <code>babelquarto</code> do it for you.</li>
+</ul>
+</section>
+<section id="nuances" class="level3">
+<h3 class="anchored" data-anchor-id="nuances">Nuances</h3>
+<ul>
+<li><p>The biggest issue that I can see is that the main language is rendered from the root directory, whereas the other languages use a sub-directory. In other words if English is the default, its rendered from <code>project/index.html</code> and French as a secondary would be rendered from <code>project/fr/index.html</code>. This is counter to i18n guidelines as consistency between languages is recommended.</p>
+<ul>
+<li>This also makes it a tad less intuitive if you need to setup a default <code>index.html</code> page to give visitors a choice about which site they wish to proceed to (as with the other two options).</li>
+</ul></li>
+<li><p>As a separate R package, this option comes with its own nuances and tradeoffs, including:</p>
+<ul>
+<li><p>Using it introduces a new dependency. You have to learn how to use it and keep an eye on its evolution and interaction with Quarto.</p></li>
+<li><p>By learning and maintaining your skills in <code>babelquarto</code>, you are adding a to your knowledge of Quarto in a way that does not make you more competent in Quarto itself. In other words, this option slightly broadens your cognitive load as you need to also know this package and still know quarto, whereas deeper expertise in just quarto may serve you well in the future.</p></li>
+</ul></li>
+<li><p>As you are setting up and running R to render you need to ensure your setup is appropriate. For instance a GitHub runner needs to takes a bit longer to setup R and install your <code>renv.lock</code> and also render compared to just using Quarto. T</p>
+<ul>
+<li>Furthermore, walking away from Quarto CLI features means you are loosing some ability to customize things that the CLI gives you, such as rendering a specific language to a specific directory (say <code>quarto render —profile: en –</code> )</li>
+</ul></li>
+</ul>
+</section>
+<section id="notable-examples-resources-1" class="level3">
+<h3 class="anchored" data-anchor-id="notable-examples-resources-1">Notable examples / resources</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Personal examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In exploring this option, I created a separate vanilla example: <a href="https://github.com/sergegoussev/babelquarto-example" class="uri">https://github.com/sergegoussev/babelquarto-example</a>.</p>
+</div>
+</div>
+<p>If this sounds interesting, have a look at:</p>
+<ul>
+<li>A blog by Joel Nitta <a href="https://www.joelnitta.com/posts/2024-12-06_babelquarto/">“Multilingual Webpages with `Babelquarto` (Part 1 of 2).”&nbsp;2024. December 6, 2024</a>
+<ul>
+<li>He also provides a separate vanilla example (less complex than the one I set up): <a href="https://github.com/joelnitta/example-babelquarto/" class="uri">https://github.com/joelnitta/example-babelquarto/</a></li>
+</ul></li>
+<li><a href="https://docs.ropensci.org/babelquarto/index.html"><code>babelquarto</code> home site</a></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="requirements-for-a-multilingual-site" class="level1">
+<h1>Requirements for a multilingual site</h1>
+<p>It may be tough to choose between these options (I definitely struggled at first before diving in), hence we can introduce a few requirements to help choose the best option:</p>
+<ul>
+<li><p>How ‘multilingual’ do you want to be? A dive into i18n standard shows that many things should be multilingual - from the data output to the URL itself. This obviously includes metadata in your quarto docs.</p></li>
+<li><p>Do you intend to use things like quarto listings (such as to write a blog and generate it dynamically?)</p></li>
+<li><p>Do you want to avoid extra things and do things as ‘vanilla’ as possible? For instance if you already know Quarto well enough but are less up to speed on <code>lua</code> or <code>R</code> - then <code>babelquarto</code> may be less attractive.</p></li>
+</ul>
+</section>
+<section id="key-takeaways" class="level1">
+<h1>Key takeaways</h1>
+<ul>
+<li><p>Choosing between the Quarto profiles option or <code>babelquarto</code> option for me comes down to a choice between</p></li>
+<li><p>Whether using the custom R library to automate the work is sufficiently beneficial compared to the loss of flexibility and ability to rely on Quarto CLI defaults.</p>
+<ol type="a">
+<li>Whether the language switch is a concern (i.e.&nbsp;<code>/</code> for default and <code>/fr</code> for the secondary).</li>
+</ol></li>
+<li><p>While at first glance, the Quarto profile option of using a single <code>.qmd</code> file with <a href="https://quarto.org/docs/authoring/conditional.html">conditional content</a> seemed like a great solution, this option will likely be quite hard to maintain and I could see defaulting to just having separate language specific files:</p>
+<ol type="a">
+<li><p>A single document will get very messy! Say you are rendering lots of text and code – needing to switch between language will make the document long and hard to edit.</p></li>
+<li><p>There is no default way to translate the metadata and you are forced to come up with hacks. Either a <code>lua</code> filter<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> or simply having two different <code>qmd</code> files that have language specific content.</p></li>
+</ol></li>
+<li><p>The language toggle is a pain. Notable solutions include:</p>
+<ul>
+<li><p>The <code>babelquarto</code> option deals with it in the most seamless way (its biggest selling feature)</p></li>
+<li><p>I found that <code>../other_lang/blogs/multilingual-quarto/index.html</code> worked very well as long as you didn’t forget to specify the filename and the sub-folder path in each <code>qmd</code> file’s yml.</p></li>
+<li><p>Another option would naturally to be write a small <code>javascript</code> file to do the work for all pages automatically, which will probably be simpler than remembering to keep the custom metadata correct in each <code>qmd</code> file.</p></li>
+</ul></li>
+</ul>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>There is a rich discussion on the topic here: <a href="https://github.com/quarto-dev/quarto-cli/issues/275" class="uri">https://github.com/quarto-dev/quarto-cli/issues/275</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>A few like <a href="https://marioangst.com/en/blog/posts/multi-language-quarto/">Martin Angst</a> wrote about it.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>See <a href="https://github.com/linogaliana/python-datascientist/blob/main/build/replace-title.lua">example by Lino Galiana</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -752,4 +993,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/sergegoussev.github.io/blob/main/content/blogs/blog1/index.en.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sergegoussev/sergegoussev.github.io/blob/main/content/blogs/multilingual-quarto/index.en.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

@@ -1,36 +1,36 @@
 [
   {
-    "objectID": "content/blogs/blog2/index.html",
-    "href": "content/blogs/blog2/index.html",
-    "title": "Blog 2",
+    "objectID": "content/blogs/multilingual-quarto/index.html",
+    "href": "content/blogs/multilingual-quarto/index.html",
+    "title": "Quarto multilingue",
     "section": "",
-    "text": "Contenu du blog français\n\n\n\n Retour au sommet"
+    "text": "ImportantCe blog n’est pas encore traduit\n\n\n\nCliquez ici pour le lire en anglais.\n\n\n\n\n\n Retour au sommet"
   },
   {
     "objectID": "content/blogs/index.html",
     "href": "content/blogs/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Trier par\n      Ordre par défaut\n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n      \n        Titre\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitre\n\n\n\nCatégories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBlog 1\n\n\ncatégorie 1\n\n\n2 janv. 2026\n\n\n\n\n\n\nBlog 2\n\n\ncatégorie 4, catégorie 5\n\n\n2 janv. 2026\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
+    "text": "Trier par\n      Ordre par défaut\n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n      \n        Titre\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitre\n\n\n\nCatégories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBlog 2\n\n\ncatégorie 4, catégorie 5\n\n\n2 janv. 2026\n\n\n\n\n\n\nQuarto multilingue\n\n\nQuartos\n\n\n3 janv. 2026\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
   },
   {
     "objectID": "content/cv.html",
     "href": "content/cv.html",
     "title": "CV",
     "section": "",
-    "text": "Experience de travail\n\n\n\n Retour au sommet"
+    "text": "Expérience de travail…\n\n\n\n Retour au sommet"
   },
   {
     "objectID": "content/index.html",
     "href": "content/index.html",
-    "title": "Accuel",
+    "title": "À propos de moi",
     "section": "",
-    "text": "Bonjour!\n\n\n\n Retour au sommet"
+    "text": "Salut ! 👋 Je suis Serge ! Bienvenue sur mon site !\nJe suis scientifique des données principal et chercheur indépendant. Bien que je me spécialise dans les statistiques de prix et l’apprentissage machine, j’ai aussi écrit sur les sciences sociales computationnelles et d’autres sujets.\nCe site me permet de synthétiser mes réflexions et mes expériences empiriques. Tout le contenu partagé ici est basé sur des informations publiques et reflète uniquement mon opinion (généralement fondée sur un ensemble de sources que je m’efforce de citer).\n\n\n\n\n\n\n\n Retour au sommet"
   },
   {
-    "objectID": "content/blogs/blog1/index.html",
-    "href": "content/blogs/blog1/index.html",
-    "title": "Blog 1",
+    "objectID": "content/blogs/blog2/index.html",
+    "href": "content/blogs/blog2/index.html",
+    "title": "Blog 2",
     "section": "",
     "text": "Contenu du blog français\n\n\n\n Retour au sommet"
   }
