@@ -1,7 +1,12 @@
 {
   "listing": "/content/blogs/index.html",
   "items": [
-    "/content/blogs/blog2/index.html",
-    "/content/blogs/multilingual-quarto/index.html"
+    "/content/blogs/tech-topics/multilingual-quarto/index.html",
+    "/content/blogs/tech-topics/itables/index.html",
+    "/content/blogs/datasets/nz-electronics/index.html",
+    "/content/blogs/datasets/italian-ws/index.html",
+    "/content/blogs/price-stats/sampling-scanner-data/index.html",
+    "/content/blogs/price-stats/bilateral-indices/index.html",
+    "/content/blogs/tech-topics/file-types/index.html"
   ]
 }

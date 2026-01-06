@@ -85,9 +85,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -369,8 +369,15 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y2F0ZWdvcnklMjA0">category 4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2F0ZWdvcnklMjA1">category 5 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#series" id="toc-series" class="nav-link active" data-scroll-target="#series">Series</a></li>
+  <li><a href="#all-blog-posts" id="toc-all-blog-posts" class="nav-link" data-scroll-target="#all-blog-posts">All blog posts</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/sergegoussev.github.io/blob/main/content/blogs/index.en.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="QmlsYXRlcmFsJTIwcHJpY2UlMjBpbmRpY2Vz">Bilateral price indices <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMGVuZ2luZWVyaW5n">data engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMHZpc3VhbGl6YXRpb24=">data visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmlsZSUyMGZvcm1hdCUyMGJlbmNobWFya3M=">file format benchmarks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c2FtcGxpbmc=">sampling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Nhbm5lciUyMGRhdGE=">scanner data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="d2ViJTIwc2NyYXBlZCUyMGRhdGE=">web scraped data <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -379,25 +386,53 @@ window.Quarto = {
 
 
 
+<section id="series" class="level1">
+<h1>Series</h1>
+<div class="columns">
+<div class="column" style="width:30%;">
+<section id="price-statistics" class="level5">
+<h5 class="anchored" data-anchor-id="price-statistics"><a href="../../content/blogs/price-stats/index.html">Price Statistics</a></h5>
+<p>This series is on topics in such as price indices and price measurement.</p>
+</section>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:30%;">
+<section id="datasets" class="level5">
+<h5 class="anchored" data-anchor-id="datasets"><a href="../../content/blogs/datasets/index.html">Datasets</a></h5>
+<p>This series exploes various open datasets.</p>
+</section>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:30%;">
+<section id="technical-topics" class="level5">
+<h5 class="anchored" data-anchor-id="technical-topics"><a href="../../content/blogs/tech-topics/index.html">Technical topics</a></h5>
+<p>This series explores various technical topics, such as about tools, libraries, and frameworks.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="all-blog-posts" class="level1">
+<h1>All blog posts</h1>
 
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-blogs">
+<div class="quarto-listing quarto-listing-container-default" id="listing-blogs">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-blogs-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-blogs'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
       <option value="listing-date-sort" data-direction="asc">
         Date - Oldest
       </option>
       <option value="listing-date-sort" data-direction="desc">
         Date - Newest
-      </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
       </option>
     </select>
   </div>
@@ -406,54 +441,147 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="cXVhcnRv" data-listing-date-sort="1767398400000" data-listing-file-modified-sort="1767671194993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1844">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/tech-topics/multilingual-quarto/index.html" class="no-external">Multilingual Quarto site</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
 
-<th>
-Categories
-</th>
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/tech-topics/multilingual-quarto/index.html" class="no-external">
+<div class="listing-date">
+Jan 3, 2026
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="ZGF0YSUyMHZpc3VhbGl6YXRpb24lMkNxdWFydG8=" data-listing-date-sort="1759795200000" data-listing-file-modified-sort="1767671194993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="147">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/tech-topics/itables/index.html" class="no-external">Explore python <code>itables</code> library to render tables</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHZpc3VhbGl6YXRpb24='); return false;">data visualization</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
 
-<tr data-index="0" data-categories="Y2F0ZWdvcnklMjA0JTJDY2F0ZWdvcnklMjA1" data-listing-date-sort="1767312000000" data-listing-file-modified-sort="1767588048613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="Blog 2" data-listing-filename-sort="index.en.qmd">
-<td>
-<a href="../../content/blogs/blog2/index.html" class="title listing-title">Blog 2</a>
-</td>
-<td>
-<span class="listing-categories">category 4, category 5</span>
-</td>
-<td>
-<span class="listing-date">Jan 2, 2026</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/tech-topics/itables/index.html" class="no-external">
+<div class="listing-date">
+Oct 7, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="c2Nhbm5lciUyMGRhdGE=" data-listing-date-sort="1759449600000" data-listing-file-modified-sort="1767671194991" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/datasets/nz-electronics/index.html" class="no-external">New Zealand scanner electronics dataset</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('c2Nhbm5lciUyMGRhdGE='); return false;">scanner data</div>
 
-<tr data-index="1" data-categories="cXVhcnRv" data-listing-date-sort="1767398400000" data-listing-file-modified-sort="1767588048613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1844" data-listing-title-sort="Multilingual Quarto site" data-listing-filename-sort="index.en.qmd">
-<td>
-<a href="../../content/blogs/multilingual-quarto/index.html" class="title listing-title">Multilingual Quarto site</a>
-</td>
-<td>
-<span class="listing-categories">quarto</span>
-</td>
-<td>
-<span class="listing-date">Jan 3, 2026</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/datasets/nz-electronics/index.html" class="no-external">
+<div class="listing-date">
+Oct 3, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="d2ViJTIwc2NyYXBlZCUyMGRhdGE=" data-listing-date-sort="1757808000000" data-listing-file-modified-sort="1767671194983" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="315">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/datasets/italian-ws/index.html" class="no-external">Explore Italian web scraped grocery dataset</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('d2ViJTIwc2NyYXBlZCUyMGRhdGE='); return false;">web scraped data</div>
 
-</tbody>
-</table>
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/datasets/italian-ws/index.html" class="no-external">
+<div class="listing-date">
+Sep 14, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="c2Nhbm5lciUyMGRhdGElMkNzYW1wbGluZw==" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1767671194991" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1832">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/price-stats/sampling-scanner-data/index.html" class="no-external">Sampling methods for scanner data</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2Nhbm5lciUyMGRhdGE='); return false;">scanner data</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2FtcGxpbmc='); return false;">sampling</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/price-stats/sampling-scanner-data/index.html" class="no-external">
+<div class="listing-date">
+Nov 1, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="QmlsYXRlcmFsJTIwcHJpY2UlMjBpbmRpY2Vz" data-listing-date-sort="1727395200000" data-listing-file-modified-sort="1767671194991" data-listing-date-modified-sort="1767671194000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1346">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/price-stats/bilateral-indices/index.html" class="no-external">Notes on bilateral price index methods</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QmlsYXRlcmFsJTIwcHJpY2UlMjBpbmRpY2Vz'); return false;">Bilateral price indices</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/price-stats/bilateral-indices/index.html" class="no-external">
+<div class="listing-date">
+Sep 27, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="ZGF0YSUyMGVuZ2luZWVyaW5nJTJDZmlsZSUyMGZvcm1hdCUyMGJlbmNobWFya3M=" data-listing-date-sort="1602547200000" data-listing-file-modified-sort="1767671194992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../content/blogs/tech-topics/file-types/index.html" class="no-external">Benchmark test in file formats</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMGVuZ2luZWVyaW5n'); return false;">data engineering</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmlsZSUyMGZvcm1hdCUyMGJlbmNobWFya3M='); return false;">file format benchmarks</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../content/blogs/tech-topics/file-types/index.html" class="no-external">
+<div class="listing-date">
+Oct 13, 2020
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -874,4 +1002,4 @@ Categories
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/sergegoussev.github.io/blob/main/content/blogs/index.en.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sergegoussev/sergegoussev.github.io/blob/main/content/blogs/index.en.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
