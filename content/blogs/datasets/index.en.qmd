@@ -1,16 +1,14 @@
 ---
-title: "Blog"
+title: "Datasets"
 listing:
-  id: blogs
+  id: dataset-series
   contents: 
-    - "*/*/*.fr.qmd"
-    - "*/*/*.ipynb"
+    - "*/*.qmd"
+    - "*/*.ipynb"
   sort: "title"
-  type: table
+  type: default
   categories: true
   fields: [title, categories, date]
-  sort-ui: true
-  filter-ui: true
 format:
   html:
     toc: true
@@ -18,5 +16,5 @@ format:
 
 # Multilingual configurations
 output-file: "index"
-filename: "blogs/index"
+filename: "blogs/datasets/index"
 ---

@@ -3,10 +3,14 @@ project:
     - content/*.fr.qmd
     - content/*/*.fr.qmd
     - content/*/*/*.fr.qmd
+    - content/*/*/*/*.fr.qmd
+    - content/*/*/*/*.ipynb
     - "!content/*.en.qmd"
     - "!content/*/*.en.qmd"
     - "!content/*/*/*.en.qmd"
+    - "!content/*/*/*/*.en.qmd"
     - "!redirect.qmd"
+    - "!404.qmd"
   output-dir: _site/fr
 
 lang: fr

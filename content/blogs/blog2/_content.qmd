@@ -1,8 +1,0 @@
-::: {.content-visible when-profile="en"}
-English blog content
-:::
-
-::: {.content-visible when-profile="fr"}
-Contenu du blog français
-:::
-
