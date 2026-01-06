@@ -15,7 +15,7 @@ categories:
 
 # Multilingual configurations
 output-file: "index"
-filename: "blogs/multilingual-quarto/index"
+filename: "blogs/tech-topics/multilingual-quarto/index"
 ---
 
 > "There are no solutions—there are only tradeoffs." -Thomas Sowell

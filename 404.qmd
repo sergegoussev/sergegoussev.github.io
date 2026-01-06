@@ -1,0 +1,9 @@
+---
+format:
+  html:
+    minimal: true # Skips loading the full navbar/theme for speed
+---
+
+Oops! That might have been an error (or a page that has not yet been translated).
+
+Go back to the [home page here](/redirect.qmd)

@@ -1,17 +1,52 @@
 ---
 title: "Blog"
-output-file: "index"
-filename: "blogs/index"
 listing:
   id: blogs
   contents: 
-    - /**/*.en.qmd
-  sort: "title"
-  type: table
+    - "*/*/*.en.qmd"
+    - "*/*/*.ipynb"
+  sort: "date desc"
+  type: default
   categories: true
   fields: [title, categories, date]
+  sort-ui: true
+  filter-ui: true
 format:
   html:
     toc: true
     toc-expand: 2
+
+# Multilingual configurations
+output-file: "index"
+filename: "blogs/index"
 ---
+
+# Series
+
+:::: {.columns}
+
+::: {.column width="30%"}
+##### [Price Statistics](/content/blogs/price-stats/index.en.qmd)
+This series is on topics in such as price indices and price measurement.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+##### [Datasets](/content/blogs/datasets/index.en.qmd)
+This series exploes various open datasets.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+##### [Technical topics](/content/blogs/tech-topics/index.en.qmd)
+This series explores various technical topics, such as about tools, libraries, and frameworks.
+:::
+
+:::: 
+
+
+# All blog posts  

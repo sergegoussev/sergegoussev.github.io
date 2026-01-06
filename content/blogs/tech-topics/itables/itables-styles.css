@@ -1,0 +1,10 @@
+/* Set specific word-wrap for cells within a column that has the 'word-wrap' class */
+.word-wrap {
+    white-space: normal !important;
+}
+
+/* Override the overall DataTables table styles for fixed layout */
+.dataframe {
+    table-layout: fixed !important;
+    /* width: 600px !important; Adjust total width as needed */
+}

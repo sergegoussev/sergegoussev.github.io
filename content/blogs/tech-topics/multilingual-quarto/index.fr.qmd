@@ -12,7 +12,7 @@ categories:
   - Quartos
 
 # Multilingual configurations
-filename: "blogs/multilingual-quarto/index"
+filename: "blogs/tech-topics/multilingual-quarto/index"
 output-file: "index"
 ---
 
