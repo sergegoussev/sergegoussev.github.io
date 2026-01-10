@@ -1,25 +1,30 @@
 ---
 title: "Sampling methods for scanner data"
+subtitle: "Review of the literature and summary of the methods as well as an emprical example"
+bibliography: references.bib
 author: Serge Goussev
 date: 2024-11-01
+draft: true
+abstract: |
+  When scanner data is availible for price statistics, the general recommendation is typically to use all the data (commonly referred to as the universe of products) and leverage multilateral price index methods [@eurostat2022multilateral]. Two sampling methods can also be used (the fixed sample method and the dynamic sample method [@eurostat2017scanner]), with the latter resulting in performance approximating a multilateral approach [@lamboray2021index]. While the literature on this is robust and diverse, to my understanding, there is no clear single article that clearly summarizes how the methods work and emprically showcases them using open data. This blog aims to fill this gap.   
 format:
   html:
-    toc: true
-    toc-expand: 2
     html-math-method:
       method: mathjax
       url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     other-links:
-      - text: van der Grient and de Haan (2010) Use of Supermarket scanner data in the Dutch CPI
-        href: https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.6.e.pdf
-      - text: "Van der Grient and Jan de Haan (2011) Scanner Data Price Indexes: The 'Dutch Method' versus Rolling Year GEKS"
-        href: https://stats.unece.org/ottawagroup/download/f319.pdf
-      - text: "Lamboray (2021) Index Compilation Techniques for Scanner Data: An overview"
-        href: https://unece.org/sites/default/files/2021-05/Session_1_Eurostat_Paper.pdf
-      - text: "Eurostat (2017) Practical Guide for Processing Supermarket Scanner Data"
-        href: https://circabc.europa.eu/ui/group/7b031f10-ac19-4da3-a36f-58708a70133d/library/8e1333df-ca16-40fc-bc6a-1ce1be37247c/details
       - text: "UN Task Team e-handbook: Product sampling for price index calculation"      
         href: https://unstats.un.org/wiki/display/GWGSD/Product+sampling+for+price+index+calculation
+
+  pdf:
+    documentclass: article
+    papersize: letter
+    geometry:
+      - a4paper
+      - margin=1in
+    toc: false
+    number-sections: true
+    colorlinks: true
 
 categories:
   - scanner data
@@ -30,23 +35,30 @@ output-file: "index"
 filename: "blogs/price-stats/sampling-scanner-data/index"
 ---
 
+::: {.callout-note collapse="false"}
+## Empirical example TBC
+
+The blog currently summaries the methodological piece, however the empricial example using public scanner data is a WIP.
+:::
+
 # Overview
 
 Even when scanner data is available, not all data necessarily needs to be used to calculate elementary price indices. There are two sampling approaches that are typically used as they are quite effective ways to use a subset of the data but - the static and dynamic sample methods. A requirement for sampling is that each unique product is already classified to categories within which the elementary price indices are calculated.
+
 
 # Fixed sample method
 
 ## The concept
 
 -   The fixed sample method simulates a traditional approach, similar to field collection. The sample is refreshed every year to stay representative and replacement is used to maintain the sample following a traditional methodology (except that scanner data is available to sample from, i.e. you can seeing all products and all transactions, which provides a lot of additional detail of what product to replace with).
--   The method is simple (in the sense that it follows a traditional methodology and can be combined with other data in a traditional way), however it is resource intensive as replacement must be dealt with manually (for example [the Netherlands found it too costly to extend to 6 scanner retailers and shifted to the dynamic sample method](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.6.e.pdf)). It is also typically used with only a small (although representative) sample of data and can be the first approach used when starting out with scanner data.
+-   The method is simple (in the sense that it follows a traditional methodology and can be combined with other data in a traditional way), however it is resource intensive as replacement must be dealt with manually (for example Netherlands found it too costly to extend to 6 scanner retailers and shifted to the dynamic sample method [@van2010use]). It is also typically used with only a small (although representative) sample of data and can be the first approach used when starting out with scanner data.
 -   The fixed sample method favors comparability over representativity as the same items are compared over time while the representativity of the sample deteriorates over time (which is only partially mitigated by annual product resampling):
     -   A consequence of the method is thus that only similar products are selected for most disappearing items (to avoid quality adjustment), which means the method is most applicable to situations where quality change is not a major factor in the category.
     -   The method is also only applicable to categories with little churn as representativity of the products in sample will decline quickly if this is not the case. Its best to not use this method too widely due to lower representativity.
 
 ## Step-by-step process
 
-The summary of the overall process is best summarized by the [Eurostat (2017) guide, chapter 6](https://circabc.europa.eu/ui/group/7b031f10-ac19-4da3-a36f-58708a70133d/library/8e1333df-ca16-40fc-bc6a-1ce1be37247c/details):
+The summary of the overall process is best summarized by [@eurostat2017scanner] (specifically chapter 6):
 
 > In the static approach, a sample is drawn from year t and used for 12 months following December of year t. The sample is kept, and replacements are made as needed.
 
@@ -74,19 +86,15 @@ In a more detailed sense, the following steps are used to select and maintain th
         -   Explicit quality adjustment used only when needed in a select number of cases (such as if there is a change in the content of an item, quantity adjustment can be used).
         -   Implicit methods (typically the overlap method, but also mean imputation) may also need to be used.
 
-## Resources
+## Further reading
 
-The following articles summarize the fixed sample method well
-
--   Larsen (2014) [Implementing scanner data in the Danish CPI](https://unece.org/sites/default/files/2021-04/WS4_05_Implementing_scanner_data_in_the_Danish_CPI.pdf)
--   van der Grient and Jan de Haan (2010) [The use of supermarket scanner data in the Dutch CPI](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.6.e.pdf). Provides a good summary of the Laspeyres approach of the fixed sample method.
--   Lamboray (2024) [Ukraine: Technical Assistance Report - Report on Consumer Price Index Mission](https://www.imf.org/en/Publications/technical-assistance-reports/Issues/2024/07/31/Ukraine-Technical-Assistance-Report-Report-on-Consumer-Price-Index-Mission-552133). Provides a detailed summary of the Jevons approach to the fixed sample method.
+For more info, check out @larsen2014, @van2010use, and @lamboray2024ukraineimfreport.
 
 # Dynamic sample method
 
 ## The concept
 
--   As the [distribution of expenditures is typically quite skewed](https://www.ucy.ac.cy/econ/wp-content/uploads/sites/48/2021/06/AntoniadesDistributionAsMarketSharesJan2017.pdf), a relatively small number of items are usually representing the majority of expenditures. The method focuses on these using a cut-off-sampling approach and allows the basket (sample) to be updated (i.e. re-sampled) every month. Put differently, "an item will be used in the computation of the index between two consecutive months if its average expenditure share (with respect to the set of matched items) in those months is above a certain threshold value" ([van der Grient and Jan de Haan, 2010](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.6.e.pdf)).
+-   As the distribution of expenditures is typically quite skewed [@antoniades2017distribution], a relatively small number of items are usually representing the majority of expenditures. The method focuses on these using a cut-off-sampling approach and allows the basket (sample) to be updated (i.e. re-sampled) every month. Put differently, "an item will be used in the computation of the index between two consecutive months if its average expenditure share (with respect to the set of matched items) in those months is above a certain threshold value" [@van2010use].
 -   An unweighted (i.e. not using turnover) Jevons is used and chained, thereby reducing the risk of chain drift (as weights are used implicitly for sampling of items but not explicitly for index calculation).
 -   The other added benefit is that it shifts to an automatic way to maintain the sample, as the process to maintain the fixed sample method is also too labor intensive and hard to extend to many retailers (6 in the Netherlands case).
 -   The dynamic method was also found to closely approximate the GEKS, hence its a useful way to measure food and non-food categories. After a while, the NSO can shift to the multilateral method (requires a minimum of 13 months, ideally 25).
@@ -129,9 +137,6 @@ The following articles summarize the fixed sample method well
 
 The Dutch case showcased the application of the method for several COICOP categories, specifically Food (01), Wine and Beer (0212, 0213), Tools, household maintenance tools (055, 056), medical and pharmaceutical products (061), pet food (0934), and personal care products (1313). This showcases the application of the method.
 
-## Resources
+## Further reading
 
-The following articles go through the process in depth
-
--   van der Grient and Jan de Haan (2010) [The use of supermarket scanner data in the Dutch CPI](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.6.e.pdf)
--   van der Grient and Jan de Haan (2011) [Scanner Data Price Indexes: The "Dutch Method" versus Rolling Year GEKS](https://stats.unece.org/ottawagroup/download/f319.pdf)
+For more info, check out @van2010use and @van2011scanner.
