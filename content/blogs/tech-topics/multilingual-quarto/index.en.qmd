@@ -3,8 +3,9 @@ title: "Multilingual Quarto site"
 subtitle: "The options you can use and the considerations to keep in mind if you have a site that's a touch complex"
 draft: true
 abstract: |
-    As far as I am aware (as of eary 2026), there isn't a good assessment of the options (and their tradeoffs) when it comes to setting up a multilingual site using Quarto. There are a large number of customizations and some blogs summarizing one or another option, often with nuances and weaknesses. This blog tries to provide a coherent narrative and summarize my own assessment of the options and tradeoffs. For context, I wanted to aim for something semi-robust and make it look like it approached i18n (such as Government of Canada or UN sites).  
+    As far as I am aware (as of eary 2026), there isn't a good assessment of the options (and their tradeoffs) when it comes to setting up a multilingual site using Quarto. There are a large number of customizations and some blogs summarizing one or another option, often with nuances and weaknesses. This blog tries to provide a coherent narrative and summarize my own assessment of the options and tradeoffs. For context, I wanted to aim for something semi-robust and make it look like it approached official multilingual sites (such as Government of Canada or UN sites).  
 date: 2026-01-03
+date-modified: last-modified
 format:
   html:
     toc: true
@@ -24,11 +25,12 @@ filename: "blogs/tech-topics/multilingual-quarto/index"
 # tl;dr
 
 -   Quarto can handle multilingual sites (as in multiple human languages), however it is not set up to do so easily by default.[^1]
--   As of early 2026, there are 3 options to choose from if you want to set this up:
-    i.  Setting up one quarto project (i.e. one `_quarto.yml`) and using [Quarto profiles](https://quarto.org/docs/projects/profiles.html) to customize language
+-   As of early 2026, it seems to me that there are 3 options to choose from if you want to set this up:
+    i.  Setting up one quarto project (i.e. one `_quarto.yml`) and using [profiles](https://quarto.org/docs/projects/profiles.html) to render language specific sub-sites
     ii. Setting up two (or more) separate quarto projects in separate sub-directories and hosting them together.
     iii. A semi-automated way using `babelquarto` that is quite similar to option i.
 -   All options end up working, however there are some nuances in how each are set up and tradeoffs that you face. There is no clear winner in my mind.
+-   To trial the options myself, I built (and share alongside this blog) basic working examples of each.
 :::
 
 [^1]: There is a rich discussion on the topic here: <https://github.com/quarto-dev/quarto-cli/issues/275>
@@ -39,23 +41,30 @@ As far as I am aware, there are three options. In reality there are lots of nuan
 
 ## Option 1: Quarto profiles
 
-[Quarto profiles](https://quarto.org/docs/projects/profiles.html) is one of the top options (one that LLMs seem to recommend most :P). You set up a set of profiles and can switch between them easily enough. Your project also shares one main `_quarto.yml`, meaning that you have one standard project with shared configuration. This will help as you can share code, data and other info in your repo quite easily and the default folder structure (and shared content will keep).[^2]
+[Quarto profiles](https://quarto.org/docs/projects/profiles.html) is at a glance an effective option as it leverages Quarto functionality (which was technically intended for something else). Instead (or alongside) using profiles for environments, you set up language specific profiles and create a toggle to switch between them. Your project will leverage one `_quarto.yml`, meaning that you have one standard project with shared configuration. This may help in some nuanced ways, such creating one folder structure for your project (which helps simplify navigation), helps slightly simplify developing common components (as you could with some limitation use one `qmd` file for both languages for ex, or make writing code once (i.e. do not repeat yourself approach) a tad simpler.[^2]
 
 [^2]: A few like [Martin Angst](https://marioangst.com/en/blog/posts/multi-language-quarto/) wrote about it.
 
 ### Overview
 
--   Setup a `_quarto-{language}.yml` for each language profile alongside the default project setup specified in your `_quarto.yml` (the detail in the project setup is for shared content as most navigation and related language specific metadata are moved to each language profile).
+-   Setup a `_quarto-{language}.yml` for each language profile and language specific metadata (such as navigation) alongside the a regular `_quarto.yml` for overall project setup (and for shared content).
 
--   Render each specific language profile separately (i.e. `quarto render --profile en` renders the `_quarto_en.yml` to `_site/en`) as well as a central `index.qmd` to create a default landing `index.html` in `_site/` for visitors to choose the language of their choice (or to automatically redirect to a specific language). You can also setup any extra central pages such as a `404.qmd`.
+-   Render each specific language profile separately (i.e. `quarto render --profile en` renders the `_quarto_en.yml` to `_site/en`) as well as a shared content that connects the two sub-sites (such as central `index.qmd` , `404.qmd`, etc).
 
--   Content can be generated in a couple ways:
+-   When it comes to writing content, there are some options:
 
-    -   For simple cases, one `.qmd` file can be used with language specific sections (using [conditional content feature](https://quarto.org/docs/authoring/conditional.html), i.e. `{.content-visible when-profile="en"}`).
-    -   For more complex scenarios (such as to keep cleaner `qmd` files or to add multilingual metadata), separate language specific pages (i.e. `*.en.qmd` and `*.fr.qmd`). For content that needs to be shared between both languages, a separate file can be created and integrated, such as using `{{ < include _shared-content.qmd >}}`.
-    -   Folder structure can be setup with separate folders per language for maximum isolation or using one structure for simplicity.
+    -   For simple cases, one `.qmd` file can be used with language specific sections (using [conditional content feature](https://quarto.org/docs/authoring/conditional.html), i.e. `{.content-visible when-profile="en"}` can contain content in that language.
+        -   Pros - quite easy to start with!
+        -   Cons
+            -   I could see this approach being simple at first but get really messy quickly.
+            -   You have to get creative in setting metadata in other languages, and you face a low bar for metadata you can use. For example you if you want your page title to be in a language of your choice - you must use `_quarto-{language}.yml` to specify the title and can't use the `title:` bar in the page. If you want to specify advanced metadata like description or tags, you have to do this yourself manually.[^3]
+    -   For more complex scenarios (such as to keep cleaner `qmd` files or to add multilingual metadata), you can separate language specific pages (i.e. `*.en.qmd` and `*.fr.qmd`). For content that needs to be shared between both languages, a separate file can be created and integrated, such as using `{{ < include _shared-content.qmd >}}`.
+        -   Pros: can start separating content for cleanliness
+        -   Cons: this makes the directory really messy as you basically double each file. In this case its almost easier to go to Option 2.
 
 -   A toggle between languages can be hard coded to redirect to the home page of the other language or handled dynamically (a custom metadata tag can be added to each `.qmd` file and referenced in the `_quarto-{language}.yml (`i.e. `href: ../fr/content/{{< meta filename >}}.html` will reference `filename: "/blog/blog1"` in each `qmd` file).
+
+[^3]: Check out the [thread on multilingual Quarto](https://github.com/quarto-dev/quarto-cli/issues/275#issuecomment-3687937583) for examples of this.
 
 ### Challenges
 
@@ -105,6 +114,12 @@ I'll prob explore this option in a bit more detail and flush out the description
 ```
 
 ### Examples / further reading
+
+::: callout-important
+## Personal example
+
+In exploring this option, I set up this example: [https://github.com/sergegoussev/multilingual-separate-projects-example/](https://github.com/sergegoussev/multilingual-separate-projects-example/tree/main)
+:::
 
 A few examples seem to be:
 
@@ -170,7 +185,7 @@ It may be tough to choose between these options (I definitely struggled at first
 
     a.  A single document will get very messy! Say you are rendering lots of text and code – needing to switch between language will make the document long and hard to edit.
 
-    b.  There is no default way to translate the metadata and you are forced to come up with hacks. Either a `lua` filter[^3] or simply having two different `qmd` files that have language specific content.
+    b.  There is no default way to translate the metadata and you are forced to come up with hacks. Either a `lua` filter[^4] or simply having two different `qmd` files that have language specific content.
 
 -   The language toggle is a pain. Notable solutions include:
 
@@ -180,4 +195,4 @@ It may be tough to choose between these options (I definitely struggled at first
 
     -   Another option would naturally to be write a small `javascript` file to do the work for all pages automatically, which will probably be simpler than remembering to keep the custom metadata correct in each `qmd` file.
 
-[^3]: See [example by Lino Galiana](https://github.com/linogaliana/python-datascientist/blob/main/build/replace-title.lua).
+[^4]: See [example by Lino Galiana](https://github.com/linogaliana/python-datascientist/blob/main/build/replace-title.lua).
