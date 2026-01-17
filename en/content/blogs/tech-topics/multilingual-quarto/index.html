@@ -306,13 +306,19 @@ ul.task-list li input[type="checkbox"] {
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">January 17, 2026</p>
+      </div>
+    </div>
       
     </div>
     
   <div>
     <div class="abstract">
       <div class="block-title">Abstract</div>
-      <p>As far as I am aware (as of eary 2026), there isn’t a good assessment of the options (and their tradeoffs) when it comes to setting up a multilingual site using Quarto. There are a large number of customizations and some blogs summarizing one or another option, often with nuances and weaknesses. This blog tries to provide a coherent narrative and summarize my own assessment of the options and tradeoffs. For context, I wanted to aim for something semi-robust and make it look like it approached i18n (such as Government of Canada or UN sites).</p>
+      <p>As far as I am aware (as of eary 2026), there isn’t a good assessment of the options (and their tradeoffs) when it comes to setting up a multilingual site using Quarto. There are a large number of customizations and some blogs summarizing one or another option, often with nuances and weaknesses. This blog tries to provide a coherent narrative and summarize my own assessment of the options and tradeoffs. For context, I wanted to aim for something semi-robust and make it look like it approached official multilingual sites (such as Government of Canada or UN sites).</p>
     </div>
   </div>
   
@@ -372,13 +378,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <ul>
 <li>Quarto can handle multilingual sites (as in multiple human languages), however it is not set up to do so easily by default.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-<li>As of early 2026, there are 3 options to choose from if you want to set this up:
+<li>As of early 2026, it seems to me that there are 3 options to choose from if you want to set this up:
 <ol type="i">
-<li>Setting up one quarto project (i.e.&nbsp;one <code>_quarto.yml</code>) and using <a href="https://quarto.org/docs/projects/profiles.html">Quarto profiles</a> to customize language</li>
+<li>Setting up one quarto project (i.e.&nbsp;one <code>_quarto.yml</code>) and using <a href="https://quarto.org/docs/projects/profiles.html">profiles</a> to render language specific sub-sites</li>
 <li>Setting up two (or more) separate quarto projects in separate sub-directories and hosting them together.</li>
 <li>A semi-automated way using <code>babelquarto</code> that is quite similar to option i.</li>
 </ol></li>
 <li>All options end up working, however there are some nuances in how each are set up and tradeoffs that you face. There is no clear winner in my mind.</li>
+<li>To trial the options myself, I built (and share alongside this blog) basic working examples of each.</li>
 </ul>
 </div>
 </div>
@@ -387,17 +394,28 @@ ul.task-list li input[type="checkbox"] {
 <p>As far as I am aware, there are three options. In reality there are lots of nuances and similarities between the options (and there are off course different ways you can set up each). For simplicity however, let’s consider each.</p>
 <section id="option-1-quarto-profiles" class="level2">
 <h2 class="anchored" data-anchor-id="option-1-quarto-profiles">Option 1: Quarto profiles</h2>
-<p><a href="https://quarto.org/docs/projects/profiles.html">Quarto profiles</a> is one of the top options (one that LLMs seem to recommend most :P). You set up a set of profiles and can switch between them easily enough. Your project also shares one main <code>_quarto.yml</code>, meaning that you have one standard project with shared configuration. This will help as you can share code, data and other info in your repo quite easily and the default folder structure (and shared content will keep).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><a href="https://quarto.org/docs/projects/profiles.html">Quarto profiles</a> is at a glance an effective option as it leverages Quarto functionality (which was technically intended for something else). Instead (or alongside) using profiles for environments, you set up language specific profiles and create a toggle to switch between them. Your project will leverage one <code>_quarto.yml</code>, meaning that you have one standard project with shared configuration. This may help in some nuanced ways, such creating one folder structure for your project (which helps simplify navigation), helps slightly simplify developing common components (as you could with some limitation use one <code>qmd</code> file for both languages for ex, or make writing code once (i.e.&nbsp;do not repeat yourself approach) a tad simpler.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <section id="overview" class="level3">
 <h3 class="anchored" data-anchor-id="overview">Overview</h3>
 <ul>
-<li><p>Setup a <code>_quarto-{language}.yml</code> for each language profile alongside the default project setup specified in your <code>_quarto.yml</code> (the detail in the project setup is for shared content as most navigation and related language specific metadata are moved to each language profile).</p></li>
-<li><p>Render each specific language profile separately (i.e.&nbsp;<code>quarto render --profile en</code> renders the <code>_quarto_en.yml</code> to <code>_site/en</code>) as well as a central <code>index.qmd</code> to create a default landing <code>index.html</code> in <code>_site/</code> for visitors to choose the language of their choice (or to automatically redirect to a specific language). You can also setup any extra central pages such as a <code>404.qmd</code>.</p></li>
-<li><p>Content can be generated in a couple ways:</p>
+<li><p>Setup a <code>_quarto-{language}.yml</code> for each language profile and language specific metadata (such as navigation) alongside the a regular <code>_quarto.yml</code> for overall project setup (and for shared content).</p></li>
+<li><p>Render each specific language profile separately (i.e.&nbsp;<code>quarto render --profile en</code> renders the <code>_quarto_en.yml</code> to <code>_site/en</code>) as well as a shared content that connects the two sub-sites (such as central <code>index.qmd</code> , <code>404.qmd</code>, etc).</p></li>
+<li><p>When it comes to writing content, there are some options:</p>
 <ul>
-<li>For simple cases, one <code>.qmd</code> file can be used with language specific sections (using <a href="https://quarto.org/docs/authoring/conditional.html">conditional content feature</a>, i.e.&nbsp;<code>{.content-visible when-profile="en"}</code>).</li>
-<li>For more complex scenarios (such as to keep cleaner <code>qmd</code> files or to add multilingual metadata), separate language specific pages (i.e.&nbsp;<code>*.en.qmd</code> and <code>*.fr.qmd</code>). For content that needs to be shared between both languages, a separate file can be created and integrated, such as using <code>{{ &lt; include _shared-content.qmd &gt;}}</code>.</li>
-<li>Folder structure can be setup with separate folders per language for maximum isolation or using one structure for simplicity.</li>
+<li>For simple cases, one <code>.qmd</code> file can be used with language specific sections (using <a href="https://quarto.org/docs/authoring/conditional.html">conditional content feature</a>, i.e.&nbsp;<code>{.content-visible when-profile="en"}</code> can contain content in that language.
+<ul>
+<li>Pros - quite easy to start with!</li>
+<li>Cons
+<ul>
+<li>I could see this approach being simple at first but get really messy quickly.</li>
+<li>You have to get creative in setting metadata in other languages, and you face a low bar for metadata you can use. For example you if you want your page title to be in a language of your choice - you must use <code>_quarto-{language}.yml</code> to specify the title and can’t use the <code>title:</code> bar in the page. If you want to specify advanced metadata like description or tags, you have to do this yourself manually.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ul></li>
+</ul></li>
+<li>For more complex scenarios (such as to keep cleaner <code>qmd</code> files or to add multilingual metadata), you can separate language specific pages (i.e.&nbsp;<code>*.en.qmd</code> and <code>*.fr.qmd</code>). For content that needs to be shared between both languages, a separate file can be created and integrated, such as using <code>{{ &lt; include _shared-content.qmd &gt;}}</code>.
+<ul>
+<li>Pros: can start separating content for cleanliness</li>
+<li>Cons: this makes the directory really messy as you basically double each file. In this case its almost easier to go to Option 2.</li>
+</ul></li>
 </ul></li>
 <li><p>A toggle between languages can be hard coded to redirect to the home page of the other language or handled dynamically (a custom metadata tag can be added to each <code>.qmd</code> file and referenced in the <code>_quarto-{language}.yml (</code>i.e.&nbsp;<code>href: ../fr/content/blogs/tech-topics/multilingual-quarto/index.html</code> will reference <code>filename: "/blog/blog1"</code> in each <code>qmd</code> file).</p></li>
 </ul>
@@ -467,6 +485,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="examples-further-reading" class="level3">
 <h3 class="anchored" data-anchor-id="examples-further-reading">Examples / further reading</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Personal example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In exploring this option, I set up this example: <a href="https://github.com/sergegoussev/multilingual-separate-projects-example/tree/main">https://github.com/sergegoussev/multilingual-separate-projects-example/</a></p>
+</div>
+</div>
 <p>A few examples seem to be:</p>
 <ul>
 <li><a href="https://guillemmaya.com/">Guillem Maya’s site</a> seems to leverage this approach as the <a href="https://github.com/guillemmaya92/guillemmaya92.github.io/tree/main">repo follows the structure</a>.</li>
@@ -546,7 +577,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>While at first glance, the Quarto profile option of using a single <code>.qmd</code> file with <a href="https://quarto.org/docs/authoring/conditional.html">conditional content</a> seemed like a great solution, this option will likely be quite hard to maintain and I could see defaulting to just having separate language specific files:</p>
 <ol type="a">
 <li><p>A single document will get very messy! Say you are rendering lots of text and code – needing to switch between language will make the document long and hard to edit.</p></li>
-<li><p>There is no default way to translate the metadata and you are forced to come up with hacks. Either a <code>lua</code> filter<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> or simply having two different <code>qmd</code> files that have language specific content.</p></li>
+<li><p>There is no default way to translate the metadata and you are forced to come up with hacks. Either a <code>lua</code> filter<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> or simply having two different <code>qmd</code> files that have language specific content.</p></li>
 </ol></li>
 <li><p>The language toggle is a pain. Notable solutions include:</p>
 <ul>
@@ -565,7 +596,8 @@ ul.task-list li input[type="checkbox"] {
 <ol>
 <li id="fn1"><p>There is a rich discussion on the topic here: <a href="https://github.com/quarto-dev/quarto-cli/issues/275" class="uri">https://github.com/quarto-dev/quarto-cli/issues/275</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>A few like <a href="https://marioangst.com/en/blog/posts/multi-language-quarto/">Martin Angst</a> wrote about it.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>See <a href="https://github.com/linogaliana/python-datascientist/blob/main/build/replace-title.lua">example by Lino Galiana</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Check out the <a href="https://github.com/quarto-dev/quarto-cli/issues/275#issuecomment-3687937583">thread on multilingual Quarto</a> for examples of this.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>See <a href="https://github.com/linogaliana/python-datascientist/blob/main/build/replace-title.lua">example by Lino Galiana</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
