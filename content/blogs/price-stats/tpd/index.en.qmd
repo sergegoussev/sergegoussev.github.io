@@ -1,0 +1,131 @@
+---
+title: "Notes on Time Product Dummy method"
+subtitle: "Personal technical overview of TPD with example code"
+bibliography: references.bib
+draft: true
+date: 2026-01-05
+format:
+  html:
+    toc: true
+    toc-expand: 2
+
+categories:
+  - tpd
+  - multilateral price indices
+
+# Multilingual configurations
+output-file: "index"
+filename: "blogs/price-stats/tpd/index"
+---
+
+# Overview
+
+The idea for TPD comes originally was @summers1973international. @krsinich2016fews defined it into a temporal fashion. Comparson by @de2018time between TPD and other approaches showed that TPD tends to overfit.
+
+## The formula
+
+## Implemenation with basic data
+
+# Examples
+
+## Simple example
+
+To showcase how TPD runs, lets generate a simple index using the `gpindex` `price6` and `quantity6` datasets used in the [simple bilateral case](/content/blogs/price-stats/bilateral-indices/index.en.qmd).
+
+```{r}
+
+library(gpindex)
+library(tidyverse)
+
+head(price6)
+head(quantity6)
+
+long_prices <- price6 %>%
+  mutate(product_id = row_number()) %>%
+  pivot_longer(
+    cols = -product_id,
+    names_to = "period",
+    values_to = "price"
+  )
+
+long_quantities <- quantity6 %>%
+  mutate(product_id = row_number()) %>%
+  pivot_longer(
+    cols = -product_id,
+    names_to = "period",
+    values_to = "quantity"
+  )
+
+df_wls <- left_join(long_prices, long_quantities, by = c("product_id", "period")) %>%
+  mutate(
+    # Create Expenditure
+    expenditure = price * quantity,
+    # Log price for the model
+    ln_price = log(price),
+    # Ensure factors
+    product_id = as.factor(product_id),
+    period = as.factor(period)
+  ) %>%
+  # Group by period to calculate total expenditure per period
+  group_by(period) %>%
+  mutate(
+    period_total_exp = sum(expenditure),
+    # Calculate Expenditure Share (w_it)
+    share = expenditure / period_total_exp
+  ) %>%
+  ungroup()
+
+# 5. Run the WLS-TPD Model
+# We add the 'weights' argument here using the calculated shares
+wls_tpd_model <- lm(ln_price ~ product_id + period, 
+                    data = df_wls, 
+                    weights = share)
+
+# 6. Extract Coefficients and Calculate Index
+# Identify time coefficients (excluding intercept)
+time_coeffs <- coef(wls_tpd_model)[grep("period", names(coef(wls_tpd_model)))]
+
+# Construct the index
+# Base period (Intercept) = 1.0
+# Other periods = exp(beta_t)
+wls_index <- c(1, exp(time_coeffs))
+names(wls_index) <- levels(df_wls$period)
+
+print("Weighted Time Product Dummy (WLS-TPD) Index:")
+print(wls_index)
+
+```
+
+```{r}
+library(plotly)
+
+# 1. Prepare the data for plotting
+# Convert the named vector 'wls_index' from the previous step into a Data Frame
+index_df <- data.frame(
+  period = names(wls_index),
+  index_value = as.numeric(wls_index)
+)
+
+# Ensure period is a factor with the correct order (if needed)
+index_df$period <- factor(index_df$period, levels = levels(df_wls$period))
+
+# Now lets plot this!
+plt <- plot_ly(
+  data = index_df, 
+  x = ~period, 
+  y = ~index_value, 
+  type = 'scatter', 
+  mode = 'lines+markers',
+  line = list(color = '#1f77b4', width = 3),
+  marker = list(size = 8, color = '#1f77b4')
+) %>%
+  layout(
+    title = list(text = "Time Product Dummy Index using gpindex data"),
+    xaxis = list(title = "Time Period"),
+    yaxis = list(title = "Price Index (Base = 1.0)", zeroline = FALSE),
+    hovermode = "x unified"
+  )
+
+# And view the plot
+plt
+```
