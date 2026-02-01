@@ -3,3 +3,11 @@
 /_site/
 */.quarto/
 */_site/
+
+*.zip
+*.csv
+*.txt
+*.sd2
+*.parquet
+
+*_temp.*

@@ -1,0 +1,119 @@
+{
+    "weeks": "https://raw.githubusercontent.com/eurostat/dff/master/CSV/weeks.csv",
+    "stores": "https://raw.githubusercontent.com/eurostat/dff/master/CSV/stores.csv",
+    "category_files":
+    {
+        "Analgesics": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcana.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wana_csv.zip"
+        },
+        "Bath Soap": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcbat.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wbat.zip"
+        },
+        "Beer": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcber.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wber.zip"
+        },
+        "Bottled Juices": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcbjc.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wbjc.zip"
+        },
+        "Cereals": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccer.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcer.zip"
+        },
+        "Cheeses": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcche.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wche.zip"
+        },
+        "Cigarettes": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccig.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcig.zip"
+        },
+        "Cookies": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccoo.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcoo.zip"
+        },
+        "Crackers": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccra.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcra.zip"
+        },
+        "Canned Soup": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccso.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcso.zip"
+        },
+        "Dish Detergent": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcdid.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wdid.zip"
+        },
+        "Front-end-candies": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfec.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfec.zip"
+        },
+        "Frozen Dinners": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfrd.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfrd.zip"
+        },
+        "Frozen Entrees": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfre.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfre.zip"
+        },
+        "Frozen Juices": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfrj.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wfrj.zip"
+        },
+        "Fabric Softeners": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfsf.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfsf.zip"
+        },
+        "Grooming Products": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcgro.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wgro.zip"
+        },
+        "Laundry Detergents": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upclnd.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wlnd.zip"
+        },
+        "Oatmeal": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcoat.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/woat.zip"
+        },
+        "Paper Towels": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcptw.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wptw.zip"
+        },
+        "Soft Drinks": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv_files/upcsdr.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wsdr.zip"
+        },
+        "Shampoos": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcsha.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wsha.zip"
+        },
+        "Snack Crackers": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv_files/upcsna.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wsna.zip"
+        },
+        "Soaps": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcsoa.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wsoa.zip"
+        },
+        "Toothbrushes": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv_files/upctbr.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wtbr.zip"
+        },
+        "Canned Tuna": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upctna.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wtna.zip"
+        },
+        "Toothpastes": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upctpa.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wtpa.zip"
+        },
+        "Bathroom Tissues": {
+            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upctti.csv",
+            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wtti.zip"
+        }
+    }
+}
