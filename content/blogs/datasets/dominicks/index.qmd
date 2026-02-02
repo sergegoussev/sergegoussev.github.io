@@ -1,0 +1,88 @@
+---
+title: Dominick's Finer food dataset
+summary: "Personal cheatsheet/overview of the popular open scanner dataset"
+date: 2026-01-31
+execute:
+  echo: false
+format:
+  html:
+    toc: true
+    toc-expand: 2
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+categories:
+  - scanner data
+
+# Multilingual configurations
+output-file: "index"
+filename: "blogs/datasets/dominicks/index"
+---
+
+The Dominick's dataset is a very popular dataset in price statistics as it is available openly, it is a real scanner dataset, and it also contains many years of data.
+
+This blog is a personal cheatsheet on what is in the dataset, as well as some of the quirks I have found while working with it.
+
+# Overview of the dataset
+
+::: callout-caution
+## WIP
+
+Add detail about the dataset, including:
+
+-   overall size of the dataset and the relative sizes of the 26 categories (by products and number of transactions)
+
+-   average churn by month
+
+-   average prices
+
+-   lorenz curve for the various categories
+:::
+
+# Creating an index
+
+```{r}
+library(gpindex)
+library(DT)
+
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+source("utils.R")
+
+ird <- homogenous_product_aggregation(
+        category_name='bjc',
+        data_dir='../../../../data/semi-processed',
+        time_sample=c(1,2),
+        group_by_parameters=c('COM_CODE','NITEM', 'REF_PERIOD'),
+        window=list(
+        "start" = "1990-01-01",
+        "end"   = "1992-02-01")
+)
+head(ird)
+
+formatted_ird <- ird %>%
+    mutate(
+        product_id = paste(COM_CODE, NITEM, sep = "_"),
+        time = as.Date(paste0(REF_PERIOD, "-01"))
+    ) %>%
+    select (
+        product_id,
+        time,
+        price=PRICE,
+        quantity=MOVE
+    ) %>% 
+    arrange(time, product_id)
+
+# datatable(formatted_ird)
+
+
+# THIS EXAMPLE WORKS...
+df <- data.frame(
+  price    = 1:10,
+  quantity = 10:1,
+  period   = rep(1:5, 2),
+  product  = rep(letters[1:2], each = 5)
+)
+
+tg_results <- with(df, tornqvist_geks(price, quantity, period, product, window = 3))
+splice_index(tg_results, 2)
+```

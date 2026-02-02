@@ -25,18 +25,18 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 #' versions of the data and for
 #'
 #' @return TRUE/FALSE whether downloading and processing the category is needed
-is_downloading_required <- function(category_name, url_json_path="urls.json") {   
- urls <- fromJSON(url_json_path)
- if category_name not in urls["category_files"] {
-        stop("No such category")
-    }
-    # TO DO... finish
-    # if (file.exists(full_path) && grepl("\\.json$", file_name)) {
-    #     return(TRUE)
-    # } else {
-    #     return(FALSE)
-    # }
-}
+# is_downloading_required <- function(category_name, url_json_path="urls.json") {   
+#  urls <- fromJSON(url_json_path)
+#  if category_name not in urls["category_files"] {
+#         stop("No such category")
+#     }
+#     # TO DO... finish
+#     # if (file.exists(full_path) && grepl("\\.json$", file_name)) {
+#     #     return(TRUE)
+#     # } else {
+#     #     return(FALSE)
+#     # }
+# }
 
 
 #' Small function to convert .csv to .parquet
@@ -201,7 +201,7 @@ preprocess_category_data <- function(category_name, data_dir, save=FALSE, output
 
 }
 
-move = preprocess_category_data('bjc','../../../../data/semi-processed', TRUE, '../../../../data/semi-processed')
+# move = preprocess_category_data('bjc','../../../../data/semi-processed', TRUE, '../../../../data/semi-processed')
 
 #' Function to do aggregation across time, outlets, and item codes. This first
 #' and critical step in any multilateral methods is key to define the 
@@ -224,7 +224,15 @@ move = preprocess_category_data('bjc','../../../../data/semi-processed', TRUE, '
 #' @param output_dir where to save the output dataframe
 #' 
 #' @output homogeneous product dataframe
-homogenous_product_aggregation <- function() {
+homogenous_product_aggregation <- function(
+    category_name,
+    data_dir,
+    time_sample,
+    group_by_parameters,
+    window,
+    save = FALSE,
+    output_dir = NA
+) {
     move = read_parquet(glue("{data_dir}/processed_{category_name}.parquet"))
     message("data read into memory")
     move_monthly <- move %>%
@@ -245,6 +253,7 @@ homogenous_product_aggregation <- function() {
         SALES = sum(SALES)
     )
     message("aggregated")
+    print(head(move_monthly))
 
     move_monthly <- move_monthly %>%
     group_by(
@@ -256,12 +265,48 @@ homogenous_product_aggregation <- function() {
     )
     message("unit prices and sale proporitions calculated")
     #TODO: drop unecessary columns, return and save data frame
+    if (save) {
+        write_parquet(move_monthly, glue("{output_dir}/ird_{category_name}.parquet"))
+    }
+    return(move_monthly)
 }
 
-# data_dir = '../../../../data/semi-processed'
-# category_name = 'bjc'
-# window <- list(
-#     "start" = "1990-01-01",
-#     "end"   = "1992-02-01"
-# )
-# group_by_parameters = c('COM_CODE','NITEM', 'REF_PERIOD')
+
+#--------------------------
+
+if (sys.nframe() == 0) {
+    #Run only if the script is run directly
+
+    ird <- homogenous_product_aggregation(
+        category_name='bjc',
+        data_dir='../../../../data/semi-processed',
+        time_sample=c(1,2),
+        group_by_parameters=c('NITEM', 'REF_PERIOD'),
+        window=list(
+        "start" = "1990-01-01",
+        "end"   = "1990-03-01")
+    )
+    head(ird)
+    # filtered_ird <- ird %>% 
+    #     filter(REF_PERIOD == "1990-01")
+    # filtered_ird
+    # write_csv(filtered_ird, "1990-01-ird.csv")
+
+
+}
+
+tg <- with(ird, tornqvist_geks(PRICE, SHARE, REF_PERIOD, NITEM, window=3))
+tg
+
+library("gpindex")
+
+df <- data.frame(
+  price    = 1:10,
+  quantity = 10:1,
+  period   = rep(1:5, 2),
+  product  = rep(letters[1:2], each = 5)
+)
+str(df)
+
+tg_results <- with(df, tornqvist_geks(price, quantity, period, product, window = 3))
+splice_index(tg_results)
