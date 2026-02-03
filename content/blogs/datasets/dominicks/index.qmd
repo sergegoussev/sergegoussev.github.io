@@ -2,6 +2,7 @@
 title: Dominick's Finer food dataset
 summary: "Personal cheatsheet/overview of the popular open scanner dataset"
 date: 2026-01-31
+draft: true
 execute:
   echo: false
 format:
@@ -18,6 +19,13 @@ categories:
 output-file: "index"
 filename: "blogs/datasets/dominicks/index"
 ---
+
+:::{.callout-note}
+## WIP
+
+This blog is very much still in draft
+
+:::
 
 The Dominick's dataset is a very popular dataset in price statistics as it is available openly, it is a real scanner dataset, and it also contains many years of data.
 
@@ -41,7 +49,7 @@ Add detail about the dataset, including:
 
 # Creating an index
 
-```{r}
+```r
 library(gpindex)
 library(DT)
 
