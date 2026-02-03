@@ -35,6 +35,111 @@
     "text": "Advanced version\nLets make some changes so that we can modify column widths, add word-wrap, and change defaults for specific columns\n\nshow(\n    df,\n    # Disable auto-width and use a fixed layout for reliable column width.\n    autoWidth=False,\n    style=\"table-layout:fixed\",#; width:800px;\",\n    # Add buttons to customie actions that can be taken\n    buttons=['pageLength', 'csvHtml15','colvis'],\n    # Add a search pagen to ensure that I can filter the data in some way\n    layout={\"top1\":'searchPanes'},\n    # Modify columns\n    columnDefs=[\n        # Modify width of overly wide columns and make them word wrap\n        {\"width\": \"200px\", \"targets\": [4, 6], \"className\": \"word-wrap\"},\n        # Hide some columns by default\n        {\"targets\": [2,3], \"visible\": False},\n    ],\n    scrollX=False,\n)\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)"
   },
   {
+    "objectID": "content/blogs/datasets/polish-scanner/index.html",
+    "href": "content/blogs/datasets/polish-scanner/index.html",
+    "title": "Polish scanner dataset",
+    "section": "",
+    "text": "Jacek Bialek recently uploaded this scanner dataset of polish data to zenodo. This blog is my personal exploration of this dataset.\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\nThis is the init_notebook_mode cell from ITables v2.6.2\n(you should not see this message - is your notebook trusted?)\n\n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 8090 entries, 0 to 8089\nData columns (total 9 columns):\n #   Column         Non-Null Count  Dtype         \n---  ------         --------------  -----         \n 0   time           8090 non-null   datetime64[ns]\n 1   prices         8090 non-null   object        \n 2   quantities     8090 non-null   int64         \n 3   retID          8090 non-null   object        \n 4   description    8090 non-null   object        \n 5   retailer_code  8090 non-null   int64         \n 6   EAN_code       8090 non-null   object        \n 7   category       8090 non-null   object        \n 8   subcategory    8090 non-null   object        \ndtypes: datetime64[ns](1), int64(2), object(6)\nmemory usage: 569.0+ KB\n\n\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.6.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\n\n\n\n Retour au sommet"
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html",
+    "href": "content/blogs/datasets/italian-ws/index.html",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "",
+    "text": "Daniele Sasso and a few others made their dataset availible on Zenodo - https://doi.org/10.5281/zenodo.14927602 - daily webscraped data from different shops of an Italian supermarket chain. This blog summarizes the dataset and explores its various facets. Detailed overview of the data is available on the Price Stats Catalogue record of this dataset and some explorations below are summarized there."
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html#dataset-structure",
+    "href": "content/blogs/datasets/italian-ws/index.html#dataset-structure",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "Dataset structure",
+    "text": "Dataset structure\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\nThis is the init_notebook_mode cell from ITables v2.5.2\n(you should not see this message - is your notebook trusted?)"
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html#general-overview-of-the-dataset",
+    "href": "content/blogs/datasets/italian-ws/index.html#general-overview-of-the-dataset",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "General overview of the dataset",
+    "text": "General overview of the dataset\nFirst off - lets look at the data itself, its columns, and some statistics about the web scraping itself.\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 4033211 entries, 0 to 4033210\nData columns (total 8 columns):\n #   Column      Dtype  \n---  ------      -----  \n 0   date        object \n 1   price       float64\n 2   product_id  int64  \n 3   store_id    int64  \n 4   region      object \n 5   product     object \n 6   COICOP5     object \n 7   COICOP4     object \ndtypes: float64(1), int64(2), object(5)\nmemory usage: 246.2+ MB"
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html#detailed-info-about-the-dataset",
+    "href": "content/blogs/datasets/italian-ws/index.html#detailed-info-about-the-dataset",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "Detailed info about the dataset",
+    "text": "Detailed info about the dataset\nAs this is web scrape data for several years - its saved all in one analytical table.\nLet’s look at it in a bit more detail:\n\n\nShow the code\nstats = {}\nstats['Number of unique products'] = df['product'].nunique()\nstats['Number of unique stores'] = df['store_id'].nunique()\nstats['Number of unique regions'] = df['region'].nunique()\nstats['Number of COICOP5 categories'] = df['COICOP5'].nunique()\nstats['Number of unique scrapes'] = df['date'].nunique()\nstats['Number of average unique products per store per date'] = round(df.groupby([\"date\", \"store_id\"])[\"product_id\"].nunique().reset_index()['product_id'].mean(),1)\nd_end = datetime.fromisoformat(df['date'].max())\nd_start = datetime.fromisoformat(df['date'].min())\nd = d_end-d_start\nstats['number of days in sample'] = d.days + 1\npd.DataFrame.from_dict(stats, orient='index', columns=['statistic'])\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\nIt seems that there are 863 days but 841 scrapes - that means that there were no scrapes during 22 days:\n\n\nShow the code\n# Compare the current scrape list\nscrape_dates = pd.DatetimeIndex(df['date'].unique())\n\n# Against an uninterupted list of dates\nstart_date = scrape_dates.min()\nend_date = scrape_dates.max()\n\n# Create a complete, continuous date range\nfull_date_range = pd.date_range(start=start_date, end=end_date, freq='D')\n\n# Find the dates that are in the full range but not in the scrape list\nmissing_dates = full_date_range.difference(scrape_dates)\n# missing_dates\n\nmissing_dates\n\n\nDatetimeIndex(['2021-02-13', '2021-02-14', '2021-03-23', '2021-03-28',\n               '2021-06-24', '2021-08-22', '2021-08-23', '2021-08-24',\n               '2021-08-25', '2021-08-26', '2021-08-27', '2021-09-30',\n               '2021-12-02', '2022-01-23', '2022-03-16', '2022-06-21',\n               '2022-10-01', '2022-10-07', '2022-10-10', '2022-10-22',\n               '2022-10-23', '2022-11-04'],\n              dtype='datetime64[ns]', freq=None)\n\n\nIf we pivot the raw data and show the number of prices captured per store per region - it looks like this:\n\n\nShow the code\ndf.pivot_table(index='date', columns=['region','store_id'], aggfunc='count')\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\nLets also look at the number of stores per region (i.e. the above but visually)\n\n\nShow the code\ndf_number_of_stores_per_region = df.groupby([\"region\"])[\"store_id\"].nunique().to_frame()\ndf_number_of_stores_per_region.plot(kind='bar', color='green', figsize=(10,4))\nplt.title('Number of stores per region')\nplt.xlabel('region')\nplt.ylabel('Number of stores')\n# plt.xticks(rotation=1)  # Keep x-axis labels horizontal\nplt.show()"
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html#trends-about-what-was-captured",
+    "href": "content/blogs/datasets/italian-ws/index.html#trends-about-what-was-captured",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "Trends about what was captured",
+    "text": "Trends about what was captured\n\nBy category\nLets look at the number of unique products and the number of web offers captured by COICOP5 category\n\n\nShow the code\ndf_coicop_categories = df.groupby([\"COICOP5\"])[\"product_id\"].nunique()\nmean = df_coicop_categories.mean()\n\nfix, ax = plt.subplots()\n\ndf_coicop_categories.plot(\n    kind=\"bar\",\n    figsize=(12,4),\n    title=\"Number of unique products per COICOP5 category\",\n    color='darkblue',\n    legend=False,\n    ax=ax\n)\n\nax.axhline(mean, color='red', alpha=0.5)\n\nax.text(\n    x=19,\n    y=mean,\n    s=f'Average: {round(mean,1)}',\n    color='red',\n)\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nShow the code\ndf_coicop_categories = df.groupby([\"COICOP5\"])[\"product_id\"].count()\nmean = df_coicop_categories.mean()\n\nfix, ax = plt.subplots()\n\ndf_coicop_categories.plot(\n    kind=\"bar\",\n    figsize=(12,4),\n    title=\"Number of web offers per COICOP5 category\",\n    color=\"#24dba4\",\n    legend=False,\n    ax=ax\n)\n\nax.axhline(mean, color='red', alpha=0.5)\n\nax.text(\n    x=19,\n    y=mean,\n    s=f'Average: {round(mean,1)}',\n    color='red',\n)\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nOver time\nWe can also consider how much data was captured across time\n\n\nShow the code\ndf2 = df.copy(deep=True)\ndf2['date'] = pd.to_datetime(df2['date'])\ndf2 = df2.set_index('date')\ndf_scrapes = df2.resample('ME')['product_id'].count().to_frame()\nscrape_mean_monthly = df_scrapes['product_id'].mean()\n\nfix, ax = plt.subplots()\n\ndf_scrapes.plot(\n    kind='bar',\n    figsize=(12,4),\n    title=\"Number of web offers scraped per month, along with an average\",\n    legend=False,\n    ax=ax)\nplt.ylabel(\"number of web offers\")\n\nax.axhline(scrape_mean_monthly, color='red', alpha=0.5, label=\"average\")\n\nax.text(\n    x=20,\n    y=scrape_mean_monthly,\n    s=f'Average: {round(scrape_mean_monthly,1)}',\n    color='red',\n)\n\nplt.show()\n\n\n\n\n\n\n\n\n\nIt seems that the amount of web offers started to decline. This should probably be investigated (if its region or store coverage) to see if longitudinal time series should exclude any of this data"
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html#geographic-distribution-of-unique-products-by-region",
+    "href": "content/blogs/datasets/italian-ws/index.html#geographic-distribution-of-unique-products-by-region",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "Geographic distribution of unique products by region",
+    "text": "Geographic distribution of unique products by region\nThere is some example code in the zenodo page for the dataset that shows well some of the price/product info captured\n\n\nShow the code\n# Convert date column\ndf['date'] = pd.to_datetime(df['date'])  # Format: YYYY-MM-DD\n\n# Define category colors\ncategory_colors = {\"Fruit\": \"blue\", \"Vegetable\": \"green\", \"Meat\": \"red\"}\n\ngeo = df.groupby([\"region\", \"COICOP4\"])[\"product_id\"].nunique().reset_index()\npivot_geo = geo.pivot(index=\"region\", columns=\"COICOP4\", values=\"product_id\").fillna(0)\npivot_geo[\"Total\"] = pivot_geo.sum(axis=1)\npivot_geo = pivot_geo.sort_values(\"Total\", ascending=False).drop(columns=\"Total\")\npivot_geo = pivot_geo[[\"Fruit\", \"Meat\", \"Vegetable\"]]\n\npivot_geo.plot(kind=\"bar\", stacked=True, figsize=(10,6), color=[\"blue\", \"red\", \"green\"])\nplt.ylabel(\"Number of Unique Products\")\nplt.title(\"Geographic Distribution by Region and Category (Sorted)\")\nplt.xticks(rotation=45, ha=\"right\")\nplt.legend(title=\"Category\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "content/blogs/datasets/italian-ws/index.html#basic-analysis-average-price-trend-over-time-by-coicop4",
+    "href": "content/blogs/datasets/italian-ws/index.html#basic-analysis-average-price-trend-over-time-by-coicop4",
+    "title": "Explore Italian web scraped grocery dataset",
+    "section": "Basic analysis: average price trend over time (by COICOP4)",
+    "text": "Basic analysis: average price trend over time (by COICOP4)\nWe can also look at average prices by COICOP4 over time\n\n\nShow the code\nprice_trend = df.groupby([\"date\", \"COICOP4\"])[\"price\"].mean().reset_index()\n\nplt.figure(figsize=(10,5))\nsns.lineplot(data=price_trend, x=\"date\", y=\"price\", hue=\"COICOP4\", palette=category_colors)\nplt.title(\"Average Price Over Time by COICOP4 Category\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Average Price (€)\")\nplt.legend(title=\"Category\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "content/blogs/tech-topics/index.html",
+    "href": "content/blogs/tech-topics/index.html",
+    "title": "Sujets techniques",
+    "section": "",
+    "text": "Benchmark test in file formats\n\n\n\ndata engineering\n\nfile format benchmarks\n\n\n\n\n\n\n13 oct. 2020\n\n\n\n\n\n\n\nExplore python itables library to render tables\n\n\n\ndata visualization\n\nquarto\n\n\n\n\n\n\n7 oct. 2025\n\n\n\n\n\n\n\nQuarto multilingue\n\n\n\nQuartos\n\n\n\n\n\n\n3 janv. 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
+  },
+  {
+    "objectID": "content/blogs/datasets/index.html",
+    "href": "content/blogs/datasets/index.html",
+    "title": "Les ensembles de données",
+    "section": "",
+    "text": "Explore Italian web scraped grocery dataset\n\n\n\nweb scraped data\n\n\n\n\n\n\n14 sept. 2025\n\n\n\n\n\n\n\nNew Zealand scanner electronics dataset\n\n\n\nscanner data\n\n\n\n\n\n\n3 oct. 2025\n\n\n\n\n\n\n\nPolish scanner dataset\n\n\n\nscanner data\n\n\n\n\n\n\n2 févr. 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
+  },
+  {
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "À propos de moi",
+    "section": "",
+    "text": "Salut ! 👋 Je suis Serge ! Bienvenue sur mon site !\nJe suis scientifique des données principal et chercheur indépendant. Bien que je me spécialise dans les statistiques de prix et l’apprentissage machine, j’ai aussi écrit sur les sciences sociales computationnelles et d’autres sujets.\nCe site me permet de synthétiser mes réflexions et mes expériences empiriques. Tout le contenu partagé ici est basé sur des informations publiques et reflète uniquement mon opinion (généralement fondée sur un ensemble de sources que je m’efforce de citer).\n\n\n\n\n\n\n\n Retour au sommet"
+  },
+  {
+    "objectID": "content/cv.html",
+    "href": "content/cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Expérience de travail…\n\n\n\n Retour au sommet"
+  },
+  {
+    "objectID": "content/blogs/index.html",
+    "href": "content/blogs/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Trier par\n      Ordre par défaut\n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n      \n        Titre\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitre\n\n\n\nCatégories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBenchmark test in file formats\n\n\ndata engineering, file format benchmarks\n\n\n13 oct. 2020\n\n\n\n\n\n\nExplore Italian web scraped grocery dataset\n\n\nweb scraped data\n\n\n14 sept. 2025\n\n\n\n\n\n\nExplore python itables library to render tables\n\n\ndata visualization, quarto\n\n\n7 oct. 2025\n\n\n\n\n\n\nNew Zealand scanner electronics dataset\n\n\nscanner data\n\n\n3 oct. 2025\n\n\n\n\n\n\nPolish scanner dataset\n\n\nscanner data\n\n\n2 févr. 2026\n\n\n\n\n\n\nQuarto multilingue\n\n\nQuartos\n\n\n3 janv. 2026\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
+  },
+  {
+    "objectID": "content/blogs/price-stats/index.html",
+    "href": "content/blogs/price-stats/index.html",
+    "title": "Série de statistiques sur les prix",
+    "section": "",
+    "text": "Aucun article correspondant\n Retour au sommet"
+  },
+  {
+    "objectID": "content/blogs/tech-topics/multilingual-quarto/index.html",
+    "href": "content/blogs/tech-topics/multilingual-quarto/index.html",
+    "title": "Quarto multilingue",
+    "section": "",
+    "text": "ImportantCe blog n’est pas encore traduit\n\n\n\nCliquez ici pour le lire en anglais.\n\n\n\n\n\n Retour au sommet"
+  },
+  {
     "objectID": "content/blogs/datasets/nz-electronics/index.html",
     "href": "content/blogs/datasets/nz-electronics/index.html",
     "title": "New Zealand scanner electronics dataset",
@@ -96,104 +201,6 @@
     "title": "New Zealand scanner electronics dataset",
     "section": "Churn in products",
     "text": "Churn in products\n\n\nShow the code\ndf_aggregated2 = df_aggregated.reset_index()\nn = round(df_aggregated2.groupby(['prodid_num'])['month_num'].count().mean(),1)\n\n\"The average length of time products are in sample: {n}\".format(n=n)\n\n\n'The average length of time products are in sample: 8.4'\n\n\n\nProduct lifetimes (Gantt-like)\nWe can represent visually the longevity of products in sample using a gantt -like view where a line represents a product’s time in the sample based on when it entered and existed."
-  },
-  {
-    "objectID": "content/blogs/tech-topics/multilingual-quarto/index.html",
-    "href": "content/blogs/tech-topics/multilingual-quarto/index.html",
-    "title": "Quarto multilingue",
-    "section": "",
-    "text": "ImportantCe blog n’est pas encore traduit\n\n\n\nCliquez ici pour le lire en anglais.\n\n\n\n\n\n Retour au sommet"
-  },
-  {
-    "objectID": "content/blogs/price-stats/index.html",
-    "href": "content/blogs/price-stats/index.html",
-    "title": "Série de statistiques sur les prix",
-    "section": "",
-    "text": "Aucun article correspondant\n Retour au sommet"
-  },
-  {
-    "objectID": "content/blogs/index.html",
-    "href": "content/blogs/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Trier par\n      Ordre par défaut\n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n      \n        Titre\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitre\n\n\n\nCatégories\n\n\n\nDate\n\n\n\n\n\n\n\n\nBenchmark test in file formats\n\n\ndata engineering, file format benchmarks\n\n\n13 oct. 2020\n\n\n\n\n\n\nExplore Italian web scraped grocery dataset\n\n\nweb scraped data\n\n\n14 sept. 2025\n\n\n\n\n\n\nExplore python itables library to render tables\n\n\ndata visualization, quarto\n\n\n7 oct. 2025\n\n\n\n\n\n\nNew Zealand scanner electronics dataset\n\n\nscanner data\n\n\n3 oct. 2025\n\n\n\n\n\n\nQuarto multilingue\n\n\nQuartos\n\n\n3 janv. 2026\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
-  },
-  {
-    "objectID": "content/cv.html",
-    "href": "content/cv.html",
-    "title": "CV",
-    "section": "",
-    "text": "Expérience de travail…\n\n\n\n Retour au sommet"
-  },
-  {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
-    "title": "À propos de moi",
-    "section": "",
-    "text": "Salut ! 👋 Je suis Serge ! Bienvenue sur mon site !\nJe suis scientifique des données principal et chercheur indépendant. Bien que je me spécialise dans les statistiques de prix et l’apprentissage machine, j’ai aussi écrit sur les sciences sociales computationnelles et d’autres sujets.\nCe site me permet de synthétiser mes réflexions et mes expériences empiriques. Tout le contenu partagé ici est basé sur des informations publiques et reflète uniquement mon opinion (généralement fondée sur un ensemble de sources que je m’efforce de citer).\n\n\n\n\n\n\n\n Retour au sommet"
-  },
-  {
-    "objectID": "content/blogs/datasets/index.html",
-    "href": "content/blogs/datasets/index.html",
-    "title": "Les ensembles de données",
-    "section": "",
-    "text": "Explore Italian web scraped grocery dataset\n\n\n\nweb scraped data\n\n\n\n\n\n\n14 sept. 2025\n\n\n\n\n\n\n\nNew Zealand scanner electronics dataset\n\n\n\nscanner data\n\n\n\n\n\n\n3 oct. 2025\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
-  },
-  {
-    "objectID": "content/blogs/tech-topics/index.html",
-    "href": "content/blogs/tech-topics/index.html",
-    "title": "Sujets techniques",
-    "section": "",
-    "text": "Benchmark test in file formats\n\n\n\ndata engineering\n\nfile format benchmarks\n\n\n\n\n\n\n13 oct. 2020\n\n\n\n\n\n\n\nExplore python itables library to render tables\n\n\n\ndata visualization\n\nquarto\n\n\n\n\n\n\n7 oct. 2025\n\n\n\n\n\n\n\nQuarto multilingue\n\n\n\nQuartos\n\n\n\n\n\n\n3 janv. 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAucun article correspondant\n Retour au sommet"
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html",
-    "href": "content/blogs/datasets/italian-ws/index.html",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "",
-    "text": "Daniele Sasso and a few others made their dataset availible on Zenodo - https://doi.org/10.5281/zenodo.14927602 - daily webscraped data from different shops of an Italian supermarket chain. This blog summarizes the dataset and explores its various facets. Detailed overview of the data is available on the Price Stats Catalogue record of this dataset and some explorations below are summarized there."
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html#dataset-structure",
-    "href": "content/blogs/datasets/italian-ws/index.html#dataset-structure",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "Dataset structure",
-    "text": "Dataset structure\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\nThis is the init_notebook_mode cell from ITables v2.5.2\n(you should not see this message - is your notebook trusted?)"
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html#general-overview-of-the-dataset",
-    "href": "content/blogs/datasets/italian-ws/index.html#general-overview-of-the-dataset",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "General overview of the dataset",
-    "text": "General overview of the dataset\nFirst off - lets look at the data itself, its columns, and some statistics about the web scraping itself.\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 4033211 entries, 0 to 4033210\nData columns (total 8 columns):\n #   Column      Dtype  \n---  ------      -----  \n 0   date        object \n 1   price       float64\n 2   product_id  int64  \n 3   store_id    int64  \n 4   region      object \n 5   product     object \n 6   COICOP5     object \n 7   COICOP4     object \ndtypes: float64(1), int64(2), object(5)\nmemory usage: 246.2+ MB"
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html#detailed-info-about-the-dataset",
-    "href": "content/blogs/datasets/italian-ws/index.html#detailed-info-about-the-dataset",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "Detailed info about the dataset",
-    "text": "Detailed info about the dataset\nAs this is web scrape data for several years - its saved all in one analytical table.\nLet’s look at it in a bit more detail:\n\n\nShow the code\nstats = {}\nstats['Number of unique products'] = df['product'].nunique()\nstats['Number of unique stores'] = df['store_id'].nunique()\nstats['Number of unique regions'] = df['region'].nunique()\nstats['Number of COICOP5 categories'] = df['COICOP5'].nunique()\nstats['Number of unique scrapes'] = df['date'].nunique()\nstats['Number of average unique products per store per date'] = round(df.groupby([\"date\", \"store_id\"])[\"product_id\"].nunique().reset_index()['product_id'].mean(),1)\nd_end = datetime.fromisoformat(df['date'].max())\nd_start = datetime.fromisoformat(df['date'].min())\nd = d_end-d_start\nstats['number of days in sample'] = d.days + 1\npd.DataFrame.from_dict(stats, orient='index', columns=['statistic'])\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\nIt seems that there are 863 days but 841 scrapes - that means that there were no scrapes during 22 days:\n\n\nShow the code\n# Compare the current scrape list\nscrape_dates = pd.DatetimeIndex(df['date'].unique())\n\n# Against an uninterupted list of dates\nstart_date = scrape_dates.min()\nend_date = scrape_dates.max()\n\n# Create a complete, continuous date range\nfull_date_range = pd.date_range(start=start_date, end=end_date, freq='D')\n\n# Find the dates that are in the full range but not in the scrape list\nmissing_dates = full_date_range.difference(scrape_dates)\n# missing_dates\n\nmissing_dates\n\n\nDatetimeIndex(['2021-02-13', '2021-02-14', '2021-03-23', '2021-03-28',\n               '2021-06-24', '2021-08-22', '2021-08-23', '2021-08-24',\n               '2021-08-25', '2021-08-26', '2021-08-27', '2021-09-30',\n               '2021-12-02', '2022-01-23', '2022-03-16', '2022-06-21',\n               '2022-10-01', '2022-10-07', '2022-10-10', '2022-10-22',\n               '2022-10-23', '2022-11-04'],\n              dtype='datetime64[ns]', freq=None)\n\n\nIf we pivot the raw data and show the number of prices captured per store per region - it looks like this:\n\n\nShow the code\ndf.pivot_table(index='date', columns=['region','store_id'], aggfunc='count')\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the init_notebook_mode cell...\n    (need help?)\n    \n\n\n\nLets also look at the number of stores per region (i.e. the above but visually)\n\n\nShow the code\ndf_number_of_stores_per_region = df.groupby([\"region\"])[\"store_id\"].nunique().to_frame()\ndf_number_of_stores_per_region.plot(kind='bar', color='green', figsize=(10,4))\nplt.title('Number of stores per region')\nplt.xlabel('region')\nplt.ylabel('Number of stores')\n# plt.xticks(rotation=1)  # Keep x-axis labels horizontal\nplt.show()"
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html#trends-about-what-was-captured",
-    "href": "content/blogs/datasets/italian-ws/index.html#trends-about-what-was-captured",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "Trends about what was captured",
-    "text": "Trends about what was captured\n\nBy category\nLets look at the number of unique products and the number of web offers captured by COICOP5 category\n\n\nShow the code\ndf_coicop_categories = df.groupby([\"COICOP5\"])[\"product_id\"].nunique()\nmean = df_coicop_categories.mean()\n\nfix, ax = plt.subplots()\n\ndf_coicop_categories.plot(\n    kind=\"bar\",\n    figsize=(12,4),\n    title=\"Number of unique products per COICOP5 category\",\n    color='darkblue',\n    legend=False,\n    ax=ax\n)\n\nax.axhline(mean, color='red', alpha=0.5)\n\nax.text(\n    x=19,\n    y=mean,\n    s=f'Average: {round(mean,1)}',\n    color='red',\n)\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nShow the code\ndf_coicop_categories = df.groupby([\"COICOP5\"])[\"product_id\"].count()\nmean = df_coicop_categories.mean()\n\nfix, ax = plt.subplots()\n\ndf_coicop_categories.plot(\n    kind=\"bar\",\n    figsize=(12,4),\n    title=\"Number of web offers per COICOP5 category\",\n    color=\"#24dba4\",\n    legend=False,\n    ax=ax\n)\n\nax.axhline(mean, color='red', alpha=0.5)\n\nax.text(\n    x=19,\n    y=mean,\n    s=f'Average: {round(mean,1)}',\n    color='red',\n)\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nOver time\nWe can also consider how much data was captured across time\n\n\nShow the code\ndf2 = df.copy(deep=True)\ndf2['date'] = pd.to_datetime(df2['date'])\ndf2 = df2.set_index('date')\ndf_scrapes = df2.resample('ME')['product_id'].count().to_frame()\nscrape_mean_monthly = df_scrapes['product_id'].mean()\n\nfix, ax = plt.subplots()\n\ndf_scrapes.plot(\n    kind='bar',\n    figsize=(12,4),\n    title=\"Number of web offers scraped per month, along with an average\",\n    legend=False,\n    ax=ax)\nplt.ylabel(\"number of web offers\")\n\nax.axhline(scrape_mean_monthly, color='red', alpha=0.5, label=\"average\")\n\nax.text(\n    x=20,\n    y=scrape_mean_monthly,\n    s=f'Average: {round(scrape_mean_monthly,1)}',\n    color='red',\n)\n\nplt.show()\n\n\n\n\n\n\n\n\n\nIt seems that the amount of web offers started to decline. This should probably be investigated (if its region or store coverage) to see if longitudinal time series should exclude any of this data"
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html#geographic-distribution-of-unique-products-by-region",
-    "href": "content/blogs/datasets/italian-ws/index.html#geographic-distribution-of-unique-products-by-region",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "Geographic distribution of unique products by region",
-    "text": "Geographic distribution of unique products by region\nThere is some example code in the zenodo page for the dataset that shows well some of the price/product info captured\n\n\nShow the code\n# Convert date column\ndf['date'] = pd.to_datetime(df['date'])  # Format: YYYY-MM-DD\n\n# Define category colors\ncategory_colors = {\"Fruit\": \"blue\", \"Vegetable\": \"green\", \"Meat\": \"red\"}\n\ngeo = df.groupby([\"region\", \"COICOP4\"])[\"product_id\"].nunique().reset_index()\npivot_geo = geo.pivot(index=\"region\", columns=\"COICOP4\", values=\"product_id\").fillna(0)\npivot_geo[\"Total\"] = pivot_geo.sum(axis=1)\npivot_geo = pivot_geo.sort_values(\"Total\", ascending=False).drop(columns=\"Total\")\npivot_geo = pivot_geo[[\"Fruit\", \"Meat\", \"Vegetable\"]]\n\npivot_geo.plot(kind=\"bar\", stacked=True, figsize=(10,6), color=[\"blue\", \"red\", \"green\"])\nplt.ylabel(\"Number of Unique Products\")\nplt.title(\"Geographic Distribution by Region and Category (Sorted)\")\nplt.xticks(rotation=45, ha=\"right\")\nplt.legend(title=\"Category\")\nplt.tight_layout()\nplt.show()"
-  },
-  {
-    "objectID": "content/blogs/datasets/italian-ws/index.html#basic-analysis-average-price-trend-over-time-by-coicop4",
-    "href": "content/blogs/datasets/italian-ws/index.html#basic-analysis-average-price-trend-over-time-by-coicop4",
-    "title": "Explore Italian web scraped grocery dataset",
-    "section": "Basic analysis: average price trend over time (by COICOP4)",
-    "text": "Basic analysis: average price trend over time (by COICOP4)\nWe can also look at average prices by COICOP4 over time\n\n\nShow the code\nprice_trend = df.groupby([\"date\", \"COICOP4\"])[\"price\"].mean().reset_index()\n\nplt.figure(figsize=(10,5))\nsns.lineplot(data=price_trend, x=\"date\", y=\"price\", hue=\"COICOP4\", palette=category_colors)\nplt.title(\"Average Price Over Time by COICOP4 Category\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Average Price (€)\")\nplt.legend(title=\"Category\")\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "content/blogs/tech-topics/file-types/index.html",
