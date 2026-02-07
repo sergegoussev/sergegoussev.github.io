@@ -262,7 +262,8 @@ homogenous_product_aggregation <- function(
     mutate(
         PRICE = SALES / MOVE,
         SHARE = SALES / sum(SALES)
-    )
+    ) %>%
+    ungroup()
     message("unit prices and sale proporitions calculated")
     #TODO: drop unecessary columns, return and save data frame
     if (save) {
@@ -284,29 +285,31 @@ if (sys.nframe() == 0) {
         group_by_parameters=c('NITEM', 'REF_PERIOD'),
         window=list(
         "start" = "1990-01-01",
-        "end"   = "1990-03-01")
+        "end"   = "1992-03-01")
     )
-    head(ird)
-    # filtered_ird <- ird %>% 
-    #     filter(REF_PERIOD == "1990-01")
-    # filtered_ird
-    # write_csv(filtered_ird, "1990-01-ird.csv")
+    
+    library(gpindex)
+    library(piar)
+    library(dplyr)
+    library(arrow)
+    library(glue)
 
+    setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+    all_periods <- unique(ird$REF_PERIOD)
+    print(all_periods)  
+
+    tg <- with(ird, tornqvist_geks(PRICE, MOVE, REF_PERIOD, NITEM, window=25, na.rm = TRUE))
+    head(tg)
+
+    #Splice the index to form a time series
+    spliced_tg <- splice_index(tg)
+    print("Spliced GEKS-Tornqvist index:")
+    print(spliced_tg)
+
+    #Rebase the index to the first period using piar
+    rebased_tg <- piar::rebase(spliced_tg, "1990-02")
+    print("Rebased GEKS-Tornqvist index (base = 1990-02):")
+    print(rebased_tg)
 
 }
-
-tg <- with(ird, tornqvist_geks(PRICE, SHARE, REF_PERIOD, NITEM, window=3))
-tg
-
-library("gpindex")
-
-df <- data.frame(
-  price    = 1:10,
-  quantity = 10:1,
-  period   = rep(1:5, 2),
-  product  = rep(letters[1:2], each = 5)
-)
-str(df)
-
-tg_results <- with(df, tornqvist_geks(price, quantity, period, product, window = 3))
-splice_index(tg_results)
