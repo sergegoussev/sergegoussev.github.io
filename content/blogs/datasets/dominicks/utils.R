@@ -273,11 +273,44 @@ homogenous_product_aggregation <- function(
 }
 
 
+#' Function to return a spliced GEKS-T (i.e. CCDI)
+#' 
+#' @param ird is index ready data outputted homogenous_product_aggregation()
+#' 
+#' @return full_index 
+spliced_CCDI <- function(
+    ird
+) {
+    # do a count of the numbef of periods
+    all_periods <- unique(ird$REF_PERIOD)
+    message("Calculating geks for ", length(all_periods), " periods")
+    # print(all_periods)  
+
+    # return the list of GEKS-T's for each time window
+    tg <- with(ird, tornqvist_geks(PRICE, MOVE, REF_PERIOD, NITEM, window=25, na.rm = TRUE))
+    message(head(tg))
+
+    # do a mean splice on published to get a final index
+    spliced_tg <- splice_index(tg, published=TRUE)
+    # print("Spliced GEKS-Tornqvist index:")
+    full_index <- c(1, spliced_tg)
+    return(full_index)
+}
+
 #--------------------------
 
 if (sys.nframe() == 0) {
     #Run only if the script is run directly
+    library(gpindex)
+    library(piar)
+    library(dplyr)
+    library(arrow)
+    library(glue)
 
+    #set working directory (needed for homogenous_product_aggregation())
+    setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+    # Get the index ready data (homogenous products)
     ird <- homogenous_product_aggregation(
         category_name='bjc',
         data_dir='../../../../data/semi-processed',
@@ -285,31 +318,9 @@ if (sys.nframe() == 0) {
         group_by_parameters=c('NITEM', 'REF_PERIOD'),
         window=list(
         "start" = "1990-01-01",
-        "end"   = "1992-03-01")
+        "end"   = "1997-03-01")
     )
     
-    library(gpindex)
-    library(piar)
-    library(dplyr)
-    library(arrow)
-    library(glue)
 
-    setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
-    all_periods <- unique(ird$REF_PERIOD)
-    print(all_periods)  
-
-    tg <- with(ird, tornqvist_geks(PRICE, MOVE, REF_PERIOD, NITEM, window=25, na.rm = TRUE))
-    head(tg)
-
-    #Splice the index to form a time series
-    spliced_tg <- splice_index(tg)
-    print("Spliced GEKS-Tornqvist index:")
-    print(spliced_tg)
-
-    #Rebase the index to the first period using piar
-    rebased_tg <- piar::rebase(spliced_tg, "1990-02")
-    print("Rebased GEKS-Tornqvist index (base = 1990-02):")
-    print(rebased_tg)
 
 }
