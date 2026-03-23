@@ -262,7 +262,8 @@ homogenous_product_aggregation <- function(
     mutate(
         PRICE = SALES / MOVE,
         SHARE = SALES / sum(SALES)
-    )
+    ) %>%
+    ungroup()
     message("unit prices and sale proporitions calculated")
     #TODO: drop unecessary columns, return and save data frame
     if (save) {
@@ -272,11 +273,44 @@ homogenous_product_aggregation <- function(
 }
 
 
+#' Function to return a spliced GEKS-T (i.e. CCDI)
+#' 
+#' @param ird is index ready data outputted homogenous_product_aggregation()
+#' 
+#' @return full_index 
+spliced_CCDI <- function(
+    ird
+) {
+    # do a count of the numbef of periods
+    all_periods <- unique(ird$REF_PERIOD)
+    message("Calculating geks for ", length(all_periods), " periods")
+    # print(all_periods)  
+
+    # return the list of GEKS-T's for each time window
+    tg <- with(ird, tornqvist_geks(PRICE, MOVE, REF_PERIOD, NITEM, window=25, na.rm = TRUE))
+    message(head(tg))
+
+    # do a mean splice on published to get a final index
+    spliced_tg <- splice_index(tg, published=TRUE)
+    # print("Spliced GEKS-Tornqvist index:")
+    full_index <- c(1, spliced_tg)
+    return(full_index)
+}
+
 #--------------------------
 
 if (sys.nframe() == 0) {
     #Run only if the script is run directly
+    library(gpindex)
+    library(piar)
+    library(dplyr)
+    library(arrow)
+    library(glue)
 
+    #set working directory (needed for homogenous_product_aggregation())
+    setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+    # Get the index ready data (homogenous products)
     ird <- homogenous_product_aggregation(
         category_name='bjc',
         data_dir='../../../../data/semi-processed',
@@ -284,29 +318,9 @@ if (sys.nframe() == 0) {
         group_by_parameters=c('NITEM', 'REF_PERIOD'),
         window=list(
         "start" = "1990-01-01",
-        "end"   = "1990-03-01")
+        "end"   = "1997-03-01")
     )
-    head(ird)
-    # filtered_ird <- ird %>% 
-    #     filter(REF_PERIOD == "1990-01")
-    # filtered_ird
-    # write_csv(filtered_ird, "1990-01-ird.csv")
+    
 
 
 }
-
-tg <- with(ird, tornqvist_geks(PRICE, SHARE, REF_PERIOD, NITEM, window=3))
-tg
-
-library("gpindex")
-
-df <- data.frame(
-  price    = 1:10,
-  quantity = 10:1,
-  period   = rep(1:5, 2),
-  product  = rep(letters[1:2], each = 5)
-)
-str(df)
-
-tg_results <- with(df, tornqvist_geks(price, quantity, period, product, window = 3))
-splice_index(tg_results)

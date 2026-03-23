@@ -3,117 +3,36 @@
     "stores": "https://raw.githubusercontent.com/eurostat/dff/master/CSV/stores.csv",
     "category_files":
     {
-        "ana": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcana.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wana_csv.zip"
-        },
-        "bat": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcbat.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wbat.zip"
-        },
-        "ber": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcber.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wber.zip"
-        },
-        "bjc": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcbjc.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wbjc.zip"
-        },
-        "cer": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccer.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcer.zip"
-        },
-        "che": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcche.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wche.zip"
-        },
-        "cig": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccig.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcig.zip"
-        },
-        "coo": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccoo.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcoo.zip"
-        },
-        "cra": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccra.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcra.zip"
-        },
-        "cso": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upccso.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wcso.zip"
-        },
-        "did": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcdid.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wdid.zip"
-        },
-        "fec": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfec.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfec.zip"
-        },
-        "frd": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfrd.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfrd.zip"
-        },
-        "fre": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfre.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfre.zip"
-        },
-        "frj": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfrj.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wfrj.zip"
-        },
-        "fsf": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcfsf.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wfsf.zip"
-        },
-        "gro": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcgro.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wgro.zip"
-        },
-        "lnd": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upclnd.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wlnd.zip"
-        },
-        "oat": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcoat.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/woat.zip"
-        },
-        "ptw": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcptw.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wptw.zip"
-        },
-        "sdr": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv_files/upcsdr.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wsdr.zip"
-        },
-        "sha": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcsha.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wsha.zip"
-        },
-        "sna": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv_files/upcsna.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wsna.zip"
-        },
-        "soa": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upcsoa.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wsoa.zip"
-        },
-        "tbr": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv_files/upctbr.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv-files/wtbr.zip"
-        },
-        "tna": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upctna.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wtna.zip"
-        },
-        "tpa": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upctpa.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wtpa.zip"
-        },
-        "tti": {
-            "products": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/upc_csv-files/upctti.csv",
-            "movement": "https://www.chicagobooth.edu/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/movement_csv_files/wtti.zip"
-        }
+        "URL": "https://www.chicagobooth.edu/research/kilts/research-data/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/",
+        "product_URL": "upc_csv-files/upc{CATEGORY_SHORT}.csv",
+        "movement_URL": "movement_csv-files/w{CATEGORY_SHORT}_csv.zip",
+        "Analgetics" : "ana",
+        "Bath Soap" : "bat",
+        "Beer" : "ber",
+        "Bottled Juices" : "bjc",
+        "Cereals" : "cer",
+        "Cheeses" : "che",
+        "Cigarettes" : "cig",
+        "Cookies" : "coo",
+        "Crackers" : "cra",
+        "Canned Soup" : "cso",
+        "Dish Detergent" : "did",
+        "Front-end-candies" : "fec",
+        "Frozen Dinners" : "frd",
+        "Frozen Entrees" : "fre",
+        "Frozen Juices" : "frj",
+        "Fabric Softeners" : "fsf",
+        "Grooming Products" : "gro",
+        "Laundry Detergents" : "lnd",
+        "Oatmeal" : "oat",
+        "Paper Towels" : "ptw",
+        "Soft Drinks" : "sdr",
+        "Shampoos" : "sha",
+        "Snack Crackers" : "sna",
+        "Soaps" : "soa",
+        "Toothbrushes" : "tbr",
+        "Canned Tuna" : "tna",
+        "Toothpastes" : "tpa",
+        "Bathroom Tissues" : "tti"
     }
 }
