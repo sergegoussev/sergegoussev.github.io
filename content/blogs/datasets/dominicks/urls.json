@@ -5,7 +5,8 @@
     {
         "URL": "https://www.chicagobooth.edu/research/kilts/research-data/-/media/enterprise/centers/kilts/datasets/dominicks-dataset/",
         "product_URL": "upc_csv-files/upc{CATEGORY_SHORT}.csv",
-        "movement_URL": "movement_csv-files/w{CATEGORY_SHORT}_csv.zip"
+        "movement_URL": "movement_csv-files/w{CATEGORY_SHORT}.zip",
+        "movement_URL_alt": "movement_csv-files/w{CATEGORY_SHORT}_csv.zip"
     },
     "category_dictionary":
     {
