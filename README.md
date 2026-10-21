@@ -4,11 +4,11 @@ Go to [https://sergegoussev.github.io/en/content/](https://sergegoussev.github.i
 
 This stores my basic info and my blog
 
-To render locally, run:
+## Render
+
+As this site is based on a bilingual configuration of Quarto, the default `quarto preview` will not work. Thus, to render locally, run the spcially prepared bash script:
 
 ```bash
 .\preview-gh.sh
 ```
-Then open your browser to http://localhost:8000
-
-stuff
+Which will open your browser to http://localhost:8000 and show you the local site
