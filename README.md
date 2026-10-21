@@ -1,5 +1,7 @@
 # Personal site
 
+Go to [https://sergegoussev.github.io/en/content/](https://sergegoussev.github.io/en/content/) to check it out
+
 To render locally, run:
 
 ```bash
