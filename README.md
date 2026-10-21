@@ -1,6 +1,8 @@
-# Personal site
+# Welcome to my personal site!
 
-Go to [https://sergegoussev.github.io/en/content/](https://sergegoussev.github.io/en/content/) to check it out
+Go to [https://sergegoussev.github.io/en/content/](https://sergegoussev.github.io/en/content/) to check it out!
+
+This stores my basic info and my blog
 
 To render locally, run:
 
